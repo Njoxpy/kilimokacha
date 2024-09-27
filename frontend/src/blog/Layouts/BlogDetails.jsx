@@ -1,4 +1,6 @@
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
+import Subscribe from "../components/Subscribe";
+import LatestBlogs from "../../Home/LatestBlogs"
 
 function BlogDetails() {
     const { details } = useParams();
@@ -7,6 +9,12 @@ function BlogDetails() {
             <div>
                 {details}
             </div>
+            <div>
+                <Subscribe />
+                <LatestBlogs />
+            </div>
+
+            <Outlet />
         </>
     )
 }

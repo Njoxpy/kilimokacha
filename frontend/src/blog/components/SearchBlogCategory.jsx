@@ -3,7 +3,7 @@ function SearchBlogCategory(){
         <>
         <div>
             <form action="/search-category">
-                <input type="search" name="blog-category" id="" placeholder="search blog category"/>
+                <input type="search" name="blog-category" id="" placeholder="search blog category" required/>
                 <button>search</button>
             </form>
         </div>

@@ -1,12 +1,13 @@
+import BlogCard from "../components/BlogCard";
 import SearchBlogCategory from "../components/SearchBlogCategory"
-import Blog from "../pages/Blog";
 
 function HomeBlog() {
     return (
         <>
             <div>
+                <h1>hello</h1>
                 <SearchBlogCategory />
-                <Blog />
+                <BlogCard />
             </div>
         </>
     )

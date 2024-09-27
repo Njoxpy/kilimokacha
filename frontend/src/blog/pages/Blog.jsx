@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import nyanya from "../../assets/images/nyanya.jpg"
+import Subscribe from "../components/Subscribe";
 
 function Blog() {
     return (
         <>
             <div>
+                <div className="subscribe-cta-blog">
+                    <Subscribe />
+                </div>
                 <div className="blog-template">
                     <img src={nyanya} alt="kilimo cha nyanya" />
                     <h2>Kilimo Cha Nyanya Songea</h2>

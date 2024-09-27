@@ -12,4 +12,4 @@ function authorCard() {
 
 export default authorCard;
 
-// download people faces profile picture
+// download people faces profile picture: Done

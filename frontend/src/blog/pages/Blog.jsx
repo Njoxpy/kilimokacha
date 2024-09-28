@@ -25,3 +25,12 @@ function Blog() {
 }
 
 export default Blog;
+
+export const blogsLoader = async () => {
+    const response = await fetch("http://localhost:3000/blogs");
+  
+    if (!response.ok) {
+      throw Error("Could not fetch!")
+    }
+    return response.json();
+  };

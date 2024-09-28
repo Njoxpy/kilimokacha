@@ -1,15 +1,14 @@
+import Justin from "../../assets/images/justin.jpg"
+
 function authorCard() {
     return(
         <>
         <div className="author-card">
-            <img src="" alt="author profile photo" />
+            <img src={Justin} alt="author profile photo" className="w-24 rounded"/>
             <h3>author name</h3>
-            <p>date article was written</p>
         </div>
         </>
     )
 }
 
 export default authorCard;
-
-// download people faces profile picture: Done

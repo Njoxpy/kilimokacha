@@ -1,14 +1,16 @@
 import BlogCard from "../components/BlogCard";
 import SearchBlogCategory from "../components/SearchBlogCategory"
+import Footer from "../../components/Footer"
 
 function HomeBlog() {
     return (
         <>
             <div>
-                <h1>hello</h1>
                 <SearchBlogCategory />
                 <BlogCard />
             </div>
+
+            <Footer />
         </>
     )
 }

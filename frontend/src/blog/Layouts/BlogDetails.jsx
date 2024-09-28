@@ -3,11 +3,11 @@ import Subscribe from "../components/Subscribe";
 import LatestBlogs from "../../Home/LatestBlogs"
 
 function BlogDetails() {
-    const { details } = useParams();
+    const { id } = useParams();
     return (
         <>
             <div>
-                {details}
+                {id}
             </div>
             <div>
                 <Subscribe />

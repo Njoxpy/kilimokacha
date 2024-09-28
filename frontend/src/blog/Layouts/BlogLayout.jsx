@@ -1,12 +1,9 @@
 import Outlet from "react-router-dom";
 
 const BlogLayout = () => {
-    return(
+    return (
         <>
-        <div>
-            
-        </div>
-        <Outlet />
+            <Outlet />
         </>
     )
 }

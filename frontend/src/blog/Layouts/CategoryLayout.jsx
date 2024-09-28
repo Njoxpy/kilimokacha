@@ -5,9 +5,8 @@ function CategoryLayout() {
     return (
         <>
             <div>
-                <h3>KilimoKacha</h3>
                 <nav>
-                    <ul>
+                    <ul className='flex'>
                         <li><Link to="/blog/farming-tips">Farming Tips</Link> </li>
                         <li><Link to="/blog/market-trends">Market Trends</Link> </li>
                         <li><Link to="/blog/success-stories">Success Stories</Link></li>

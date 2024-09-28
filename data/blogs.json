@@ -1,0 +1,80 @@
+{
+    "blogs": [
+      {
+        "id": 1,
+        "author_name": "Moses Njoroge",
+        "thumbnail_image": "https://example.com/images/blog1.jpg",
+        "snippets": "Discover how adopting drip irrigation in arid regions of Kenya can help conserve water while increasing crop yield.",
+        "date_written": "2024-09-20",
+        "read_time_count": 5,
+        "impressions": {
+          "likes": 150,
+          "comments": 24,
+          "shares": 10
+        },
+        "blog_title": "Water Conservation Through Drip Irrigation",
+        "blog_category": "Sustainability"
+      },
+      {
+        "id": 2,
+        "author_name": "Amina Ahmed",
+        "thumbnail_image": "https://example.com/images/blog2.jpg",
+        "snippets": "A look at the latest market trends for maize and sorghum in Nigeria, and how farmers can benefit from better pricing.",
+        "date_written": "2024-09-18",
+        "read_time_count": 7,
+        "impressions": {
+          "likes": 89,
+          "comments": 15,
+          "shares": 5
+        },
+        "blog_title": "Maize and Sorghum Market Trends in West Africa",
+        "blog_category": "Market Trends"
+      },
+      {
+        "id": 3,
+        "author_name": "Kofi Mensah",
+        "thumbnail_image": "https://example.com/images/blog3.jpg",
+        "snippets": "Learn how crop rotation methods are being successfully implemented by smallholder farmers in Ghana to improve soil health.",
+        "date_written": "2024-09-17",
+        "read_time_count": 6,
+        "impressions": {
+          "likes": 110,
+          "comments": 20,
+          "shares": 8
+        },
+        "blog_title": "Improving Soil Health Through Crop Rotation",
+        "blog_category": "Farming Tips"
+      },
+      {
+        "id": 4,
+        "author_name": "Fatima Yusuf",
+        "thumbnail_image": "https://example.com/images/blog4.jpg",
+        "snippets": "How a small cassava farm in Tanzania turned into a successful business by leveraging local partnerships and markets.",
+        "date_written": "2024-09-15",
+        "read_time_count": 8,
+        "impressions": {
+          "likes": 200,
+          "comments": 45,
+          "shares": 25
+        },
+        "blog_title": "From Cassava Farm to Business: A Success Story in Tanzania",
+        "blog_category": "Success Stories"
+      },
+      {
+        "id": 5,
+        "author_name": "John Kamau",
+        "thumbnail_image": "https://example.com/images/blog5.jpg",
+        "snippets": "Farmers in Uganda are adopting solar-powered irrigation to tackle climate change and ensure year-round production.",
+        "date_written": "2024-09-14",
+        "read_time_count": 7,
+        "impressions": {
+          "likes": 130,
+          "comments": 18,
+          "shares": 12
+        },
+        "blog_title": "Solar-Powered Irrigation: A Sustainable Farming Practice",
+        "blog_category": "Sustainability"
+      }
+    ]
+  }
+  

@@ -1,0 +1,135 @@
+[
+    {
+      "id": 1,
+      "location": "Dar es Salaam",
+      "date": "2024-09-30",
+      "temperature": {
+        "current": 30,
+        "high": 32,
+        "low": 24
+      },
+      "precipitation": {
+        "chance": 15,
+        "amount": 0
+      },
+      "humidity": 70,
+      "wind": {
+        "speed": 10,
+        "direction": "SE"
+      },
+      "conditions": "Partly cloudy",
+      "advisory": "Good weather for farming activities.",
+      "cropSuggestions": ["Cassava", "Pineapples"]
+    },
+    {
+      "id": 2,
+      "location": "Dodoma",
+      "date": "2024-09-30",
+      "temperature": {
+        "current": 27,
+        "high": 29,
+        "low": 19
+      },
+      "precipitation": {
+        "chance": 20,
+        "amount": 2
+      },
+      "humidity": 55,
+      "wind": {
+        "speed": 5,
+        "direction": "NW"
+      },
+      "conditions": "Sunny",
+      "advisory": "Ideal conditions for planting maize.",
+      "cropSuggestions": ["Maize", "Beans"]
+    },
+    {
+      "id": 3,
+      "location": "Mwanza",
+      "date": "2024-09-30",
+      "temperature": {
+        "current": 24,
+        "high": 26,
+        "low": 20
+      },
+      "precipitation": {
+        "chance": 35,
+        "amount": 10
+      },
+      "humidity": 80,
+      "wind": {
+        "speed": 8,
+        "direction": "E"
+      },
+      "conditions": "Rainy",
+      "advisory": "Prepare for rain; ensure drainage is clear.",
+      "cropSuggestions": ["Rice", "Vegetables"]
+    },
+    {
+      "id": 4,
+      "location": "Arusha",
+      "date": "2024-09-30",
+      "temperature": {
+        "current": 22,
+        "high": 25,
+        "low": 17
+      },
+      "precipitation": {
+        "chance": 40,
+        "amount": 5
+      },
+      "humidity": 65,
+      "wind": {
+        "speed": 7,
+        "direction": "W"
+      },
+      "conditions": "Cloudy",
+      "advisory": "Possible light showers; monitor soil moisture.",
+      "cropSuggestions": ["Potatoes", "Carrots"]
+    },
+    {
+      "id": 5,
+      "location": "Mbeya",
+      "date": "2024-09-30",
+      "temperature": {
+        "current": 21,
+        "high": 23,
+        "low": 15
+      },
+      "precipitation": {
+        "chance": 50,
+        "amount": 12
+      },
+      "humidity": 75,
+      "wind": {
+        "speed": 6,
+        "direction": "S"
+      },
+      "conditions": "Overcast",
+      "advisory": "Expect rain; prepare for planting season.",
+      "cropSuggestions": ["Coffee", "Tea"]
+    },
+    {
+      "id": 6,
+      "location": "Njombe",
+      "date": "2024-09-30",
+      "temperature": {
+        "current": 19,
+        "high": 21,
+        "low": 14
+      },
+      "precipitation": {
+        "chance": 60,
+        "amount": 15
+      },
+      "humidity": 85,
+      "wind": {
+        "speed": 4,
+        "direction": "N"
+      },
+      "conditions": "Rainy",
+      "advisory": "Heavy rainfall expected; secure crops and check drainage.",
+      "cropSuggestions": ["Cabbage", "Onions"]
+    }
+  ]
+  

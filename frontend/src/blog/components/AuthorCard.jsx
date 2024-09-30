@@ -1,14 +1,17 @@
-import Justin from "../../assets/images/justin.jpg"
+import Justin from "../../assets/images/justin.jpg";
 
-const authorCard = () => {
-    return(
-        <>
-        <div className="author-card">
-            <img src={Justin} alt="author profile photo" className="w-24 rounded"/>
-            <h3>author name</h3>
+const AuthorCard = () => {
+  return (
+    <>
+      <div className="author-card flex items-center space-x-4 bg-white shadow-md p-4 rounded-lg max-w-sm">
+        <img src={Justin} alt="author profile photo" className="w-24 h-24 rounded-full object-cover" />
+        <div>
+          <h3 className="text-lg font-semibold">Author Name</h3>
+          <p className="text-gray-500">Author's bio or description</p>
         </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
-export default authorCard;
+export default AuthorCard;

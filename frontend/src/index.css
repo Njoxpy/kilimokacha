@@ -6,9 +6,9 @@
     background-image: url(./assets/images/chai.jpg);
     background-repeat: round;
     background-position: center;
-    background-blend-mode: multiply;
+    object-fit: cover;
     text-align: center;
-    padding: 100px;
+    padding: 150px;
 }
 
 body {

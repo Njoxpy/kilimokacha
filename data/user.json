@@ -1,0 +1,9 @@
+{
+    "user": {
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "bio": "Agriculture enthusiast and community supporter.",
+      "avatar": "https://example.com/path/to/avatar.jpg"
+    }
+  }
+  

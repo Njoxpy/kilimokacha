@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "crop": "Maize",
+      "price": {
+        "current": 1500,
+        "previous": 1450,
+        "trend": "up"
+      },
+      "availability": "Available",
+      "market": "Nairobi Market",
+      "dateUpdated": "2024-09-28",
+      "description": "High-quality maize suitable for both consumption and animal feed. Prices have seen a slight increase due to high demand.",
+      "category": "Cereals"
+    },
+    {
+      "id": 2,
+      "crop": "Beans",
+      "price": {
+        "current": 2000,
+        "previous": 1900,
+        "trend": "up"
+      },
+      "availability": "Limited",
+      "market": "Kisumu Market",
+      "dateUpdated": "2024-09-27",
+      "description": "Fresh beans available in limited quantities. The price has risen due to recent weather conditions affecting supply.",
+      "category": "Legumes"
+    },
+    {
+      "id": 3,
+      "crop": "Tomatoes",
+      "price": {
+        "current": 3000,
+        "previous": 2500,
+        "trend": "up"
+      },
+      "availability": "Seasonal",
+      "market": "Eldoret Market",
+      "dateUpdated": "2024-09-26",
+      "description": "Ripe tomatoes are currently in season, with prices climbing due to increased demand in urban areas.",
+      "category": "Vegetables"
+    },
+    {
+      "id": 4,
+      "crop": "Potatoes",
+      "price": {
+        "current": 1000,
+        "previous": 900,
+        "trend": "up"
+      },
+      "availability": "Available",
+      "market": "Mombasa Market",
+      "dateUpdated": "2024-09-25",
+      "description": "Fresh potatoes available at competitive prices. Demand has been steady, leading to a slight price increase.",
+      "category": "Tubers"
+    },
+    {
+      "id": 5,
+      "crop": "Bananas",
+      "price": {
+        "current": 500,
+        "previous": 550,
+        "trend": "down"
+      },
+      "availability": "Abundant",
+      "market": "Nairobi Market",
+      "dateUpdated": "2024-09-28",
+      "description": "Bananas are currently abundant in supply. Prices have dropped due to favorable growing conditions.",
+      "category": "Fruits"
+    }
+  ]
+  

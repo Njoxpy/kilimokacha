@@ -1,42 +1,81 @@
+import { useState } from "react";
+
 const Impression = () => {
+  const width = 24;
 
-    const width = 24;
+  // Using state to keep track of likes number
+  const [likesNumber, setLikesNumber] = useState(0);
 
-    let likesNUmber = 0;
-    const handleClick = () => {
-        likesNUmber = likesNUmber + 1;
-        console.log(likesNUmber);
-    }
+  const handleClick = () => {
+    setLikesNumber(likesNumber + 1); // Updates the state to re-render the component
+    console.log(likesNumber + 1); // This will log the incremented likes number
+  };
 
-    return (
-        <>
-            <div className="flex">
-                <button onClick={handleClick}>
-                    <svg data-slot="icon" aria-hidden="true" width={width} fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" strokeLinecap="round" strokeLinejoin="round"></path>
-                    </svg>
-                </button>
+  return (
+    <>
+      <div className="flex items-center space-x-4">
+        <button onClick={handleClick} className="flex items-center space-x-2">
+          <svg
+            aria-hidden="true"
+            width={width}
+            fill="none"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-red-600"
+          >
+            <path
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>
+          </svg>
+          <span>{likesNumber}</span>
+        </button>
 
-                <button>
-                    <svg data-slot="icon" aria-hidden="true" width={width} fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" strokeLinecap="round" strokeLinejoin="round"></path>
-                    </svg>
-                </button>
+        <button className="flex items-center space-x-2">
+          <svg
+            aria-hidden="true"
+            width={width}
+            fill="none"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-gray-600"
+          >
+            <path
+              d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>
+          </svg>
+          <span>Comment</span>
+        </button>
 
-
-                <button>
-                    <svg data-slot="icon" aria-hidden="true" width={width} fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" strokeLinecap="round" strokeLinejoin="round"></path>
-                    </svg>
-                </button>
-
-            </div>
-        </>
-    )
-}
+        <button className="flex items-center space-x-2">
+          <svg
+            aria-hidden="true"
+            width={width}
+            fill="none"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-blue-600"
+          >
+            <path
+              d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>
+          </svg>
+          <span>Share</span>
+        </button>
+      </div>
+    </>
+  );
+};
 
 export default Impression;
-
-/**
- * impression: likes, comment, share
- */

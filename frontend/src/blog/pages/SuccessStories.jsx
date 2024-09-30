@@ -1,7 +1,7 @@
 const SuccessStories = () => {
     return (
         <>
-            <div>
+            <div className="p-4">
                 <h4>market strories</h4>
             </div>
         </>

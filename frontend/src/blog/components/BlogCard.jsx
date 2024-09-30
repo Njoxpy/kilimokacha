@@ -4,7 +4,7 @@ import Comment from "./Comment"
 
 import Brocoli from "../../assets/images/brocoli.jpg"
 
-function BlogCard() {
+const BlogCard = () => {
     return (
         <>
             <div>

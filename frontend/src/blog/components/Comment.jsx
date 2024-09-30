@@ -1,4 +1,4 @@
-function Comment() {
+const Comment = () => {
     return (
         <>
             <div>

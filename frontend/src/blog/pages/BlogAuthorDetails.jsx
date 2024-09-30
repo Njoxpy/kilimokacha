@@ -5,7 +5,7 @@ const BlogAuthorDetails = () => {
     const {name} = useParams()
     return(
         <>
-        <div>
+        <div className="p-4">
             <h3>Blog author info</h3>
             <p>blog author name: {name}</p>
         </div>

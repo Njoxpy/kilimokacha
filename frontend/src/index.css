@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.njox {
+    background-image: url(./assets/images/chai.jpg);
+    background-repeat: round;
+    background-position: center;
+    background-blend-mode: multiply;
+    text-align: center;
+    padding: 100px;
+}
+
+body {
+    user-select: none;
+}

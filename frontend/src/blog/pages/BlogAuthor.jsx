@@ -1,7 +1,7 @@
 const BlogAuthor = () => {
     return(
         <>
-        <div>
+        <div className="p-4">
             <h3>blog author page</h3>
         </div>
         </>

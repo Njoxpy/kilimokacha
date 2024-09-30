@@ -1,6 +1,6 @@
 import BlogCard from "./BlogCard";
 
-function RelatedBlogs(){
+const RelatedBlogs = () => {
     return(
         <>
         <div>

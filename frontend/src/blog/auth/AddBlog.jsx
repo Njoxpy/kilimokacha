@@ -20,7 +20,7 @@ const AddBlog = () => {
 
     return (
         <>
-            <div className="bg-white">
+            <div className="bg-white p-4">
                 <form action="/add-blog" onSubmit={handleSubmit}>
                     <label htmlFor="blog-title" className="">Blog Title</label>
                     <input
@@ -75,7 +75,7 @@ const AddBlog = () => {
                         <option value="janeth nyagawa">Janeth Nyagawa</option>
                     </select>
 
-                    <button>Create Blog</button>
+                    <button className="bg-announceCta p-2 rounded hover:bg-green-700 transition-all 0.4s text-white">Create Blog</button>
                 </form>
             </div>
         </>

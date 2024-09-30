@@ -1,7 +1,7 @@
 const Sustainability = () => {
     return (
         <>
-            <div>
+            <div className="p-4">
                 <h4>sustainability</h4>
             </div>
         </>

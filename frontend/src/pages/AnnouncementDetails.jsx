@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
 const AnnouncementDetails = () => {
-    const { announceid } = useParams()
+    const { announceId } = useParams()
     return (
         <>
             <div>
-                <h3>{announceid}</h3>
+                <h3>{announceId}</h3>
             </div>
         </>
     )

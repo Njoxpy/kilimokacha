@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 const ExpertAdvice = () => {
     return (
         <>
-            <div>
+            <div className="p-4">
                 <div className="advice-body">
                     <img src="" alt="" />
                     <div className="info-advice">

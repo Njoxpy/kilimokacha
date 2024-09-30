@@ -16,26 +16,23 @@ import MarketInfo from "./pages/MarketInfo"
 import Weather from "./pages/Weather"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
-import ForgotPassword from "./auth/ForgotPasswd"
-import UserProfileDetails from "./pages/UserProfileDetails"
 import Announcement from "./pages/Announcement"
 import BlogPost from "./blog/pages/BlogPost"
+import AddExpertAdvice from "./pages/AddExpertAdvice";
+import UserProfile from "./pages/UserProfile";
+import ExpertAdvice from "./pages/ExpertAdvice"
+import About from "./pages/About"
+import Contact from "./pages/Contact"
+import Terms from "./pages/Terms"
+import Privacy from "./pages/Privacy"
+import BlogAuthor from "./blog/pages/BlogAuthor"
 
 // layouts: root
 import RootLayout from "./layouts/RootLayout";
 import ExpertAdviceLayout from "./layouts/ExpertAdviceLayout";
 import WeatherLayout from "./layouts/WeatherLayout";
 import UserProfileLayout from "./layouts/UserProfileLayout";
-import AnnouncementLayout from "./layouts/AnnouncementLayouts"
-import AddExpertAdvice from "./pages/AddExpertAdvice";
-import ExpertAdvice from "./pages/ExpertAdvice"
-import ExpertAdviceDetails from "./pages/ExpertAdviceDetails";
-import About from "./pages/About"
-import Contact from "./pages/Contact"
-import Terms from "./pages/Terms"
-import Privacy from "./pages/Privacy"
-import WeatherDetails from "./pages/WeatherDetails";
-import BlogAuthor from "./blog/pages/BlogAuthor"
+import AnnouncementLayout from "./layouts/AnnouncementLayout"
 
 // layouts: blog
 import BlogAuthorLayout from "./blog/Layouts/BlogAuthorLayout";
@@ -44,6 +41,11 @@ import CategoryLayout from "./blog/Layouts/CategoryLayout";
 // hooks
 
 // details
+import ExpertAdviceDetails from "./pages/ExpertAdviceDetails";
+import ForgotPassword from "./auth/ForgotPassword"
+import UserProfileDetails from "./pages/UserProfileDetails"
+import WeatherDetails from "./pages/WeatherDetails";
+import BlogAuthorDetails from "./blog/pages/BlogAuthorDetails";
 import AnnouncementDetails from "./pages/AnnouncementDetails"
 
 // loader
@@ -52,9 +54,8 @@ import { blogsLoader } from "./blog/pages/Blog";
 // error
 import ExpertAdviceError from "./Error/ExpertAdviceError";
 import WeatherError from "./Error/WeatherError"
-import UserProfile from "./pages/UserProfile";
 import UserError from "./Error/UserError";
-import BlogAuthorDetails from "./blog/pages/BlogAuthorDetails";
+import AnnouncementError from "./Error/AnnouncementError";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -65,7 +66,7 @@ const router = createBrowserRouter(
       <Route path="market-info" element={<MarketInfo />} />
       <Route path="announcement" element={<AnnouncementLayout />}>
         <Route index element={<Announcement />} />
-        <Route path=":id" element={<AnnouncementDetails />} />
+        <Route path=":announceId" element={<AnnouncementDetails />} errorElement={<AnnouncementError />}/>
       </Route>
       <Route path="weather-data" element={<WeatherLayout />} >
         <Route index element={<Weather />} />
@@ -87,12 +88,12 @@ const router = createBrowserRouter(
         <Route path=":id" element={<ExpertAdviceDetails />} errorElement={<ExpertAdviceError />} />
       </Route>
       <Route path="add-expert-advice" element={<AddExpertAdvice />} />
-      <Route path="/blog" element={<CategoryLayout />}>
+      <Route path="/blog" element={<CategoryLayout />} errorElement={<NotFound />}>
         <Route index element={<HomeBlog />} />
-        <Route path="blog/:id" element={<BlogPost />} />
+        <Route path="blog/:id" element={<BlogPost />} sear/>
         <Route path="author" element={<BlogAuthorLayout />}>
-          <Route index element={<BlogAuthor />}/>
-          <Route path=":name" element={<BlogAuthorDetails />}/>
+          <Route index element={<BlogAuthor />} />
+          <Route path=":name" element={<BlogAuthorDetails />} />
         </Route>
         <Route path="add" element={<AddBlog />} />
         <Route path="search" element={<SearchBlogCategory />} />

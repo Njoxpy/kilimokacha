@@ -2,7 +2,7 @@ import { Outlet, useParams } from "react-router-dom";
 import Subscribe from "../components/Subscribe";
 import LatestBlogs from "../../Home/LatestBlogs"
 
-function BlogDetails() {
+const BlogDetails = () => {
     const { id } = useParams();
     return (
         <>

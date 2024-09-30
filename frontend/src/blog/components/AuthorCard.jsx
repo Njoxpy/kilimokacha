@@ -1,6 +1,6 @@
 import Justin from "../../assets/images/justin.jpg"
 
-function authorCard() {
+const authorCard = () => {
     return(
         <>
         <div className="author-card">

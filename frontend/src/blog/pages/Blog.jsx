@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import nyanya from "../../assets/images/nyanya.jpg"
 import Subscribe from "../components/Subscribe";
 
-function Blog() {
+const Blog = () => {
     return (
         <>
             <div>

@@ -9,8 +9,21 @@
     object-fit: cover;
     text-align: center;
     padding: 150px;
+    background-blend-mode: multiply;
 }
 
-body {
+/* body {
     user-select: none;
+} */
+
+
+.bloglist-center{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-mh{
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 }

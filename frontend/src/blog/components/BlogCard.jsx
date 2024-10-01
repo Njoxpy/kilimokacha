@@ -24,6 +24,7 @@ const BlogCard = () => {
           src={Brocoli}
           alt="blog thumbnail"
           className="w-full h-48 object-cover rounded-lg mb-4"
+          loading="lazy"
         />
 
         <p className="text-gray-700 mb-6">
@@ -32,12 +33,9 @@ const BlogCard = () => {
           exercitationem nam recusandae magnam, corporis enim iusto sunt
           deleniti quisquam sapiente.
         </p>
-
-        <button className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-all duration-300">
-          Read More
-        </button>
-
+        <div className="comment">
         <Comment />
+        </div>
       </div>
     </>
   );

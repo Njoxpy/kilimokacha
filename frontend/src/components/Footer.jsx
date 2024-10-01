@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <>
-            <div className="p-4 bg-footerBg text-footerText">
+            <div className="p-4 bg-footerBg text-footerText mt-5">
                 <div className="quick-links mb-4">
                     <ul className="flex flex-wrap gap-4 justify-center">
                         <li><Link to="/about" className="text-footerLinkColor hover:underline">About Us</Link></li>
@@ -29,5 +29,7 @@ const Footer = () => {
         </>
     );
 }
+
+// into social media account use a to send user to different page of the webiste
 
 export default Footer;

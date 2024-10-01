@@ -9,7 +9,7 @@ const Sponsors = () => {
     return (
         <>
             <div className="p-4">
-                <h3 className="text-2xl text-center">Explore Our Key Sponsors</h3>
+                <h3 className="text-2xl text-center mb-9">Explore Our Key Sponsors</h3>
                 <div className="flex flex-wrap justify-center mt-4">
                     <img src={Logo1} alt="Kibo" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" />
                     <img src={Logo2} alt="MUST" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" />

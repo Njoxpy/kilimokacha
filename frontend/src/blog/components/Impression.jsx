@@ -51,7 +51,7 @@ const Impression = () => {
               strokeLinejoin="round"
             ></path>
           </svg>
-          <span>Comment</span>
+          <span id="comment">Comment</span>
         </button>
 
         <button className="flex items-center space-x-2">

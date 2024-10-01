@@ -8,7 +8,7 @@ const RootLayout = () => {
             <div className="font-serif leading-relaxed text-gray-800">
                 <div className="bg-announceBg text-white p-4 flex justify-between items-center">
                     <h1>Announcement title</h1>
-                    <Link to="announcement"><button className="bg-announceCta p-2 hover:bg-green-800 transition-all 0.4s">Read more</button></Link>
+                    <Link to="announcement/1"><button className="bg-announceCta p-2 hover:bg-green-800 transition-all 0.4s">Read more</button></Link>
                 </div>
                 <div className="flex justify-between items-center p-2.5 bg-green-700">
                     <h1 className="font-bold text-white text-2xl m-2"><Link to="/">KilimoKacha</Link></h1>

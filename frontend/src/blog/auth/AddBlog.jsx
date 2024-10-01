@@ -1,12 +1,14 @@
 import { useState } from "react";
+import Footer from "../../components/Footer";
 
 const AddBlog = () => {
   const [blogTitle, setBlogTitle] = useState("");
   const [blogDescription, setBlogDescription] = useState("");
-  const { thumbnailImage, setThumbnailImage } = useState(null);
+  const [thumbnailImage, setThumbnailImage] = useState("");
   const [blogAuthor, setBlogAuthor] = useState("janeth nyagawa");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(true);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,7 +22,7 @@ const AddBlog = () => {
   return (
     <>
       <div className="bg-white p-6 max-w-lg mx-auto shadow-md rounded-lg">
-        <form action="/add-blog" onSubmit={handleSubmit} className="space-y-4">
+        <form action="/new" onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="blog-title" className="block text-sm font-medium text-gray-700 mb-2">
               Blog Title
@@ -103,6 +105,7 @@ const AddBlog = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

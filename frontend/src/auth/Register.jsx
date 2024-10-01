@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Register = () => {
     return (
@@ -15,6 +16,10 @@ const Register = () => {
                     <button className="w-full p-2 bg-green-600 text-white rounded">Sign Up</button>
                 </form>
 
+            </div>
+
+            <div className="footer-mh">
+            <Footer />
             </div>
         </>
     )

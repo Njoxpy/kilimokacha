@@ -23,7 +23,7 @@ import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Terms from "./pages/terms/Terms";
 import Privacy from "./pages/terms/Privacy";
-import BlogAuthor from "./blog/pages/BlogAuthor";
+import BlogAuthor, { authorsLoader } from "./blog/pages/BlogAuthor";
 
 // Layouts
 import RootLayout from "./layouts/RootLayout";
@@ -39,7 +39,7 @@ import ExpertAdviceDetails from "./pages/expert_advice/ExpertAdviceDetails";
 import ForgotPassword from "./auth/ForgotPassword";
 import UserProfileDetails from "./pages/user_profile/UserProfileDetails";
 import WeatherDetails from "./pages/weather/WeatherDetails";
-import BlogAuthorDetails from "./blog/pages/BlogAuthorDetails";
+import BlogAuthorDetails, { authorDetailsLoader } from "./blog/pages/BlogAuthorDetails";
 import AnnouncementDetails from "./pages/announcement/AnnouncementDetails";
 
 // Error Components
@@ -47,6 +47,8 @@ import ExpertAdviceError from "./Error/ExpertAdviceError";
 import WeatherError from "./Error/WeatherError";
 import UserError from "./Error/UserError";
 import AnnouncementError from "./Error/AnnouncementError";
+import AuthorError from "./blog/error/BlogAuthorError"
+import AnnouncementForm from "./auth/AnnouncementForm";
 
 // Router
 const router = createBrowserRouter(
@@ -58,6 +60,7 @@ const router = createBrowserRouter(
       <Route path={"announcement"} element={<AnnouncementLayout />}>
         <Route index element={<Announcement />} />
         <Route path={":announceId"} element={<AnnouncementDetails />} errorElement={<AnnouncementError />} />
+        <Route path="new" element={<AnnouncementForm />} />
       </Route>
 
       <Route path={"weather-data"} element={<WeatherLayout />}>
@@ -84,21 +87,21 @@ const router = createBrowserRouter(
         <Route path="new" element={<AddExpertAdvice />} />
       </Route>
 
-      <Route path="*" element={<NotFound />} />
-      <Route path="blog" element={<CategoryLayout />} errorElement={<NotFound />}>
+      <Route path="blogs" element={<CategoryLayout />} errorElement={<NotFound />}>
         <Route index element={<HomeBlog />} />
+        <Route path=":id" element={<BlogPost />} />
         <Route path="new" element={<AddBlog />} />
         <Route path="search" element={<SearchBlogCategory />} />
         <Route path="farming-tips" element={<FarmingTips />} />
         <Route path="market-trends" element={<MarketTrends />} />
         <Route path="success-stories" element={<SuccessStories />} />
         <Route path="sustainability" element={<Sustainability />} />
-        <Route path=":id" element={<BlogPost />} />
         <Route path="authors" element={<BlogAuthorLayout />}>
-          <Route index element={<BlogAuthor />} />
-          <Route path=":name" element={<BlogAuthorDetails />} />
+          <Route index element={<BlogAuthor />} loader={authorsLoader} />
+          <Route path=":id" element={<BlogAuthorDetails />} loader={authorDetailsLoader} errorElement={<AuthorError />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

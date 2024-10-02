@@ -11,12 +11,12 @@ const Sponsors = () => {
             <div className="p-4">
                 <h3 className="text-2xl text-center mb-9">Explore Our Key Sponsors</h3>
                 <div className="flex flex-wrap justify-center mt-4">
-                    <img src={Logo1} alt="Kibo" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" />
-                    <img src={Logo2} alt="MUST" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" />
-                    <img src={Logo3} alt="Pay" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" />
-                    <img src={Logo4} alt="Tunzaa" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" />
-                    <img src={Logo5} alt="UDSM" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" />
-                    <img src={Logo6} alt="Yara" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" />
+                    <img src={Logo1} alt="Kibo" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" loading="lazy" />
+                    <img src={Logo2} alt="MUST" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" loading="lazy" />
+                    <img src={Logo3} alt="Pay" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" loading="lazy" />
+                    <img src={Logo4} alt="Tunzaa" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" loading="lazy" />
+                    <img src={Logo5} alt="UDSM" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" loading="lazy" />
+                    <img src={Logo6} alt="Yara" className="m-2 h-16 sm:h-20 md:h-24 lg:h-28" loading="lazy" />
                 </div>
             </div>
         </>

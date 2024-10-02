@@ -45,3 +45,9 @@ const BlogList = () => {
 };
 
 export default BlogList;
+
+const blogsLoader = async () => {
+    const res = await fetch("http://localhost:3002/blogs")
+
+    return res.json()
+}

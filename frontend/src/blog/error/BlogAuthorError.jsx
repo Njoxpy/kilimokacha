@@ -17,6 +17,7 @@ const BlogAuthorError = () => {
                 >
                     Go Back
                 </button>
+                <p>{error.statusText || error.message}</p>
             </div>
         </>
     );

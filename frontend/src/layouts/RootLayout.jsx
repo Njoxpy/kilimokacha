@@ -11,20 +11,20 @@ const RootLayout = () => {
     return (
         <>
             <div className="font-serif leading-relaxed text-gray-800">
-                {/* Announcement Section */}
+
                 <div className="bg-announceBg text-white p-4 flex justify-between items-center">
-                    <h1>Announcement title</h1>
+                    <h1 className="uppercase">3 Simple pie charts illustrate Illinois soybean harvest so far</h1>
                     <Link to="announcement/1">
                         <button className="bg-announceCta p-2 hover:bg-green-800 transition-all duration-400">Read more</button>
                     </Link>
                 </div>
 
-                {/* Navbar */}
+
                 <div className="flex justify-between items-center p-2.5 bg-green-700">
                     <h1 className="font-bold text-white text-2xl m-2"><Link to="/">KilimoKacha</Link></h1>
                     <div className="md:hidden">
                         <button onClick={toggleMenu} className="text-white">
-                            {/* Hamburger Icon */}
+
                             {isMenuOpen ? '✖' : '☰'}
                         </button>
                     </div>

@@ -4,26 +4,40 @@
 
 .njox {
     background-image: url(./assets/images/chai.jpg);
-    background-repeat: round;
+    background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     object-fit: cover;
-    text-align: center;
-    padding: 150px;
+    padding: 80px 0;
     background-blend-mode: multiply;
 }
 
-/* body {
-    user-select: none;
-} */
-
-
-.bloglist-center{
+.bloglist-center {
     max-width: 900px;
     margin: 0 auto;
 }
 
-.footer-mh{
+.footer-mh {
     bottom: 0;
     position: fixed;
     width: 100%;
+}
+
+
+@media (min-width: 640px) {
+    .njox {
+        padding: 100px 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .njox {
+        padding: 120px 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .njox {
+        padding: 150px 0;
+    }
 }

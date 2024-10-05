@@ -1,4 +1,3 @@
-// hooks/useFetch.js
 import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
@@ -7,24 +6,26 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
+    setLoading(true);
+    setError(null);
+
+    fetch(url)
+      .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        const result = await response.json();
+        return response.json();
+      })
+      .then((result) => {
         setData(result);
-      } catch (error) {
-        setError(error);
-      } finally {
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => {
         setLoading(false);
-      }
-    };
-
-    fetchData();
+      });
   }, [url]);
-
   return { data, loading, error };
 };
 

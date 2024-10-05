@@ -15,10 +15,8 @@ const Footer = () => {
 
                 <div className="mb-4">
                     <ul className="flex flex-wrap gap-4 justify-center">
-                        <li><Link to="/facebook" className="text-footerLinkColor hover:underline">Facebook</Link></li>
-                        <li><Link to="/twitter" className="text-footerLinkColor hover:underline">Twitter</Link></li>
-                        <li><Link to="/instagram" className="text-footerLinkColor hover:underline">Instagram</Link></li>
-                        <li><Link to="/linkedin" className="text-footerLinkColor hover:underline">LinkedIn</Link></li>
+                        <a href="https://www.linkedin.com/company/kilimokacha/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="text-footerLinkColor hover:underline">LinkedIn</a>
+
                     </ul>
                 </div>
 

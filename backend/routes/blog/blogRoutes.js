@@ -30,7 +30,7 @@ blogRouter.get("/authors/:id", (req, res) => {
 
 // POST: add new author
 blogRouter.post("/authors", (req, res) => {
-    res.json({ name: 'add new author'})
+    res.json({ name: 'new author has been added'})
 })
 
 // PUT: update authors by id
@@ -44,9 +44,15 @@ blogRouter.delete("/authors/:id", (req, res) => {
 })
 
 // GET: get by search
-blogRouter.get("/search?query=", (req, res) => {
-    res.json({ message: "you searched for a blog" })
-})
+blogRouter.get("/search", (req, res) => {
+    const query = req.query.query; // Access the query parameter from req.query
+    if (query) {
+        res.json({ message: `You searched for: ${query}` });
+    } else {
+        res.json({ message: "No search query provided" });
+    }
+});
+
 
 // GET: get by blog by category
 blogRouter.get("/:category", (req, res) => {
@@ -64,14 +70,20 @@ blogRouter.get("/categories", (req, res) => {
 })
 
 // POST: add new blog category
-blogRouter.post("/categories", (req, res) => {
+blogRouter.post("/categories/new", (req, res) => {
     res.json("add new blog category")
 })
 
-// PATCH: update blog category
-blogRouter.patch("/categories/:id", (req, res) => {
+// GET: Get single category
+blogRouter.put("/categories/:id", (req, res) => {
     res.json("update blog category")
 })
+
+// PATCH: update blog category
+blogRouter.put("/categories/:id", (req, res) => {
+    res.json("update blog category")
+})
+
 
 // DELETE: Delete blog category
 blogRouter.delete("/categories/:id", (req, res) => {
@@ -81,7 +93,7 @@ blogRouter.delete("/categories/:id", (req, res) => {
 // comments
 // GET: comment for blog post
 blogRouter.get("/posts/:id/comments", (req, res) => {
-    res.json({ message: "get the single blog post comment by an id" })
+    res.json({ message: "get list of comments available for a blog post" })
 })
 
 // POST: add comment for blog post

@@ -8,3 +8,7 @@ me.xml
 notes.txt
 
 system
+
+backend/.env
+
+.env

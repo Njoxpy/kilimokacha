@@ -10,7 +10,7 @@ const Subscribe = () => {
 
     return (
         <>
-            <div className="p-4 bg-white shadow-md rounded-lg">
+            <div className="p-4 bg-white shadow-md rounded-lg margin">
                 <h3 className="text-2xl font-semibold mb-2 text-gray-700">
                     Empowering Smallholder Farmers in Africa
                 </h3>

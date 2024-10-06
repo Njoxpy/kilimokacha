@@ -17,7 +17,7 @@ const AnnouncementForm = () => {
         console.log({ title, date, body });
 
         // Redirect to the announcements page after submission
-        navigate("announcements");
+        navigate("/");
     };
 
     return (
@@ -33,19 +33,7 @@ const AnnouncementForm = () => {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             placeholder="Enter Announcement Title"
-                            className="border rounded w-full py-2 px-3"
-                            required
-                        />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 mb-1" htmlFor="date">Date:</label>
-                        <input
-                            type="date"
-                            id="date"
-                            value={date}
-                            onChange={(e) => setDate(e.target.value)}
-                            className="border rounded w-full py-2 px-3"
+                            className="w-full p-2 mb-4 border border-gray-300 rounded"
                             required
                         />
                     </div>
@@ -57,7 +45,7 @@ const AnnouncementForm = () => {
                             value={body}
                             onChange={(e) => setBody(e.target.value)}
                             placeholder="Enter Announcement Details"
-                            className="border rounded w-full py-2 px-3 h-32"
+                            className="w-full p-2 mb-4 border border-gray-300 rounded h-32"
                             required
                         />
                     </div>
@@ -71,7 +59,7 @@ const AnnouncementForm = () => {
                         </button>
                         <button
                             type="button"
-                            onClick={() => navigate("/announcements")}
+                            onClick={() => navigate("/")}
                             className="bg-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-400 transition duration-300"
                         >
                             Cancel

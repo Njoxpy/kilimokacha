@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../../components/Footer';
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
@@ -29,6 +30,7 @@ const UserProfile = () => {
   if (error) return <p className="text-center text-red-500">Error: {error.message}</p>;
 
   return (
+    <>
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white shadow-md rounded-lg p-6 w-11/12 max-w-md">
         <div className="flex flex-col items-center">
@@ -48,6 +50,9 @@ const UserProfile = () => {
         </div>
       </div>
     </div>
+
+    <Footer />
+    </>
   );
 };
 

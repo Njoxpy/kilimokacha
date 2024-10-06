@@ -24,6 +24,8 @@ import Contact from "./pages/contact/Contact";
 import Terms from "./pages/terms/Terms";
 import Privacy from "./pages/terms/Privacy";
 import BlogAuthor, { authorsLoader } from "./blog/pages/BlogAuthor";
+import Help from "./pages/help/help"
+import Guide from "./pages/help/guide"
 
 // Layouts
 import RootLayout from "./layouts/RootLayout";
@@ -70,15 +72,15 @@ const router = createBrowserRouter(
 
       <Route path={"about"} element={<About />} />
       <Route path={"contact"} element={<Contact />} />
-      <Route path="terms" element={<Terms />} />
-      <Route path="privacy" element={<Privacy />} />
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-      <Route path="reset-password" element={<ForgotPassword />} />
+      <Route path={"terms"} element={<Terms />} />
+      <Route path={"privacy"} element={<Privacy />} />
+      <Route path={"auth/login"} element={<Login />} />
+      <Route path={"auth/register"} element={<Register />} />
+      <Route path={"auth/new-password"} element={<ForgotPassword />} />
 
-      <Route path="user" element={<UserProfileLayout />}>
+      <Route path={"user"} element={<UserProfileLayout />}>
         <Route index element={<UserProfile />} />
-        <Route path=":username" element={<UserProfileDetails />} errorElement={<UserError />} />
+        <Route path={":username"} element={<UserProfileDetails />} errorElement={<UserError />} />
       </Route>
 
       <Route path="expert-advice" element={<ExpertAdviceLayout />}>
@@ -87,15 +89,18 @@ const router = createBrowserRouter(
         <Route path="new" element={<AddExpertAdvice />} />
       </Route>
 
-      <Route path="blogs" element={<CategoryLayout />} errorElement={<NotFound />}>
+      <Route path={"help"} element={<Help />}/>
+      <Route path={"guide"} element={<Guide />}/>
+
+      <Route path="blog" element={<CategoryLayout />} >
         <Route index element={<HomeBlog />} />
-        <Route path=":id" element={<BlogPost />} />
         <Route path="new" element={<AddBlog />} />
         <Route path="search" element={<SearchBlogCategory />} />
         <Route path="farming-tips" element={<FarmingTips />} />
         <Route path="market-trends" element={<MarketTrends />} />
         <Route path="success-stories" element={<SuccessStories />} />
         <Route path="sustainability" element={<Sustainability />} />
+        <Route path=":id" element={<BlogPost />} />
         <Route path="authors" element={<BlogAuthorLayout />}>
           <Route index element={<BlogAuthor />} loader={authorsLoader} />
           <Route path=":id" element={<BlogAuthorDetails />} loader={authorDetailsLoader} errorElement={<AuthorError />} />

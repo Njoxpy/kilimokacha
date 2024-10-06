@@ -47,7 +47,7 @@ const Contact = () => {
                         <h3 className="text-xl font-bold">Our Contact Information</h3>
                         <p>Email: <a href="mailto:info@kilimokacha.com" className="text-green-500">info@kilimokacha.com</a></p>
                         <p>Phone: <a href="tel:+255623216660" className="text-green-500">+255 623 216 660</a></p>
-                        <p>Location: 123 kilimokacha St, Farm City, Country</p>
+                        <p>Location: 123 kilimokacha Mbeya City, Tanzania</p>
                     </div>
                 </div>
             </section>

@@ -15,7 +15,7 @@ const Footer = () => {
 
                 <div className="mb-4">
                     <ul className="flex flex-wrap gap-4 justify-center">
-                        <a href="https://www.linkedin.com/company/kilimokacha/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="text-footerLinkColor hover:underline">LinkedIn</a>
+                        <a href="https://www.linkedin.com/company/kilimokacha/about/" target="_blank" rel="noopener noreferrer" className="text-footerLinkColor hover:underline">LinkedIn</a>
 
                     </ul>
                 </div>

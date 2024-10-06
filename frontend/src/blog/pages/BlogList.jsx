@@ -31,7 +31,7 @@ const BlogList = () => {
     return (
         <div className="p-4">
             {blogs.map((blog) => (
-                <Link key={blog.id} to={`/blogs/${blog.id}`} className="block border-b border-green-100 p-4 hover:bg-green-50 transition-colors duration-300">
+                <Link key={blog.id} to={`/blog/${blog.id}`} className="block border-b border-green-100 p-4 hover:bg-green-50 transition-colors duration-300">
                     <div>
                         <img src={blog.thumbnail_image} alt={blog.blog_title} className="w-full h-auto mb-2 rounded-lg" />
                         <h2 className="text-2xl font-bold">{blog.blog_title}</h2>

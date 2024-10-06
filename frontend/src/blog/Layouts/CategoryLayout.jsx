@@ -11,7 +11,7 @@ const CategoryLayout = () => {
                             <NavLink 
                                 to="/blog/farming-tips" 
                                 className={({ isActive }) => 
-                                    isActive ? 'font-bold' : 'hover:font-bold transition-all duration-300'
+                                    isActive ? 'font-bold' : 'text-white font-bold hover:underline transition-all duration-400 mr-[22px]'
                                 } 
                                 aria-label="Farming Tips"
                             >
@@ -22,7 +22,7 @@ const CategoryLayout = () => {
                             <NavLink 
                                 to="/blog/market-trends" 
                                 className={({ isActive }) => 
-                                    isActive ? 'font-bold' : 'hover:font-bold transition-all duration-300'
+                                    isActive ? 'font-bold' : 'text-white font-bold hover:underline transition-all duration-400 mr-[22px]'
                                 } 
                                 aria-label="Market Trends"
                             >
@@ -33,7 +33,7 @@ const CategoryLayout = () => {
                             <NavLink 
                                 to="/blog/success-stories" 
                                 className={({ isActive }) => 
-                                    isActive ? 'font-bold' : 'hover:font-bold transition-all duration-300'
+                                    isActive ? 'font-bold' : 'text-white font-bold hover:underline transition-all duration-400 mr-[22px]'
                                 } 
                                 aria-label="Success Stories"
                             >
@@ -44,7 +44,7 @@ const CategoryLayout = () => {
                             <NavLink 
                                 to="/blog/sustainability" 
                                 className={({ isActive }) => 
-                                    isActive ? 'font-bold' : 'hover:font-bold transition-all duration-300'
+                                    isActive ? 'font-bold' : 'text-white font-bold hover:underline transition-all duration-400 mr-[22px]'
                                 } 
                                 aria-label="Sustainability"
                             >

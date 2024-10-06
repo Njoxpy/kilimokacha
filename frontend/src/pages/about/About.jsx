@@ -4,6 +4,7 @@ import CountUp from 'react-countup';
 import { FaLinkedin } from 'react-icons/fa'; 
 
 import godbless from "../../assets/images/godbless.jpeg"
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -29,7 +30,7 @@ const AboutUs = () => {
   return (
     <>
       <div className="about-us bg-gray-50">
-        <section className="hero bg-green-500 text-white py-16 text-center">
+        <section className="hero bg-green-500 text-white py-16 text-center about-image">
           <div className="container mx-auto">
             <h1 className="text-4xl font-bold">Connecting Farmers with Innovation</h1>
             <p className="mt-4 text-lg">
@@ -180,7 +181,7 @@ const AboutUs = () => {
             <h2 className="text-3xl font-bold">Join Us in Empowering Farmers</h2>
             <p className="mt-4">Sign up today to be part of the future of agriculture.</p>
             <button className="mt-6 bg-white text-green-500 px-6 py-2 rounded-full font-semibold hover:bg-gray-100">
-              Sign Up Today
+              <Link to={"/auth/register"}>Sign Up Today</Link>
             </button>
           </div>
         </section>

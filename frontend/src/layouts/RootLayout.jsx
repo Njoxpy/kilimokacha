@@ -14,7 +14,7 @@ const RootLayout = () => {
 
                 <div className="bg-announceBg text-white p-4 flex justify-between items-center">
                     <h1 className="uppercase">3 Simple pie charts illustrate Illinois soybean harvest so far</h1>
-                    <Link to="announcement/1">
+                    <Link to="announcement/">
                         <button className="bg-announceCta p-2 hover:bg-green-800 transition-all duration-400">Read more</button>
                     </Link>
                 </div>
@@ -30,10 +30,10 @@ const RootLayout = () => {
                     </div>
                     <nav className={`md:flex ${isMenuOpen ? 'block' : 'hidden'} absolute md:relative bg-green-700 md:bg-transparent w-full md:w-auto`}>
                         <ul className="flex flex-col md:flex-row gap-5 md:gap-0 md:items-center p-4 md:p-0">
-                            <li><Link to="/" className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Home</Link></li>
-                            <li><Link to="/market-info" className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Market Prices</Link></li>
-                            <li><Link to="/weather-data" className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Weather</Link></li>
-                            <li><Link to="/blogs" className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Blogs</Link></li>
+                            <li><Link to={"/"} className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Home</Link></li>
+                            <li><Link to={"/market-info"} className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Market Prices</Link></li>
+                            <li><Link to={"/weather-data"} className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Weather</Link></li>
+                            <li><Link to={"/blog"} className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Blog</Link></li>
                             <li><Link to="/expert-advice" className="text-white font-bold hover:underline transition-all duration-400 mr-[22px]">Expert Advice</Link></li>
                         </ul>
                     </nav>

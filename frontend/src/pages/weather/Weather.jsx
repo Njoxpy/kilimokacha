@@ -39,6 +39,34 @@ const Weather = () => {
             humidity: "50%",
             wind: "8 km/h",
         },
+        {
+            day: "Friday",
+            temperature: "26°C",
+            condition: "Sunny",
+            humidity: "50%",
+            wind: "8 km/h",
+        },
+        {
+            day: "Friday",
+            temperature: "26°C",
+            condition: "Sunny",
+            humidity: "50%",
+            wind: "8 km/h",
+        },
+        {
+            day: "Friday",
+            temperature: "26°C",
+            condition: "Sunny",
+            humidity: "50%",
+            wind: "8 km/h",
+        },
+        {
+            day: "Friday",
+            temperature: "26°C",
+            condition: "Sunny",
+            humidity: "50%",
+            wind: "8 km/h",
+        },
     ];
 
     return (
@@ -47,7 +75,7 @@ const Weather = () => {
                 <div className="container mx-auto p-4">
                     <h1 className="text-3xl font-bold text-green-500 text-center mt-8">Weather Data</h1>
 
-                    {/* Weather Data Section */}
+
                     <div className="mt-10">
                         <h2 className="text-2xl font-semibold text-gray-700">Weekly Weather Forecast</h2>
                         <p className="mt-2 text-gray-600">
@@ -55,7 +83,7 @@ const Weather = () => {
                         </p>
                     </div>
 
-                    {/* Weather Cards */}
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                         {weatherData.map((day, index) => (
                             <div key={index} className="bg-white border border-gray-300 rounded-lg shadow-md p-4">

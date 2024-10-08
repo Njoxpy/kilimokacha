@@ -12,3 +12,5 @@ system
 backend/.env
 
 .env
+
+backend/.env

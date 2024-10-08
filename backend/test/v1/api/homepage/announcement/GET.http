@@ -1,0 +1,3 @@
+GET http://localhost:5000/api/v1/announcement/12
+
+# get announcement list and by an id

@@ -85,7 +85,7 @@ const router = createBrowserRouter(
 
       <Route path="expert-advice" element={<ExpertAdviceLayout />}>
         <Route index element={<ExpertAdvice />} />
-        <Route path=":id" element={<ExpertAdviceDetails />} errorElement={<ExpertAdviceError />} />
+        <Route path=":title" element={<ExpertAdviceDetails />} errorElement={<ExpertAdviceError />} />
         <Route path="new" element={<AddExpertAdvice />} />
       </Route>
 
@@ -100,7 +100,7 @@ const router = createBrowserRouter(
         <Route path="market-trends" element={<MarketTrends />} />
         <Route path="success-stories" element={<SuccessStories />} />
         <Route path="sustainability" element={<Sustainability />} />
-        <Route path=":id" element={<BlogPost />} />
+        <Route path=":title" element={<BlogPost />} />
         <Route path="authors" element={<BlogAuthorLayout />}>
           <Route index element={<BlogAuthor />} loader={authorsLoader} />
           <Route path=":id" element={<BlogAuthorDetails />} loader={authorDetailsLoader} errorElement={<AuthorError />} />

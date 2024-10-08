@@ -15,7 +15,7 @@ const Chatbot = () => {
         if (message.trim()) {
             setMessages([...messages, { text: message, from: "user" }]);
             setMessage("");
-            // Here you can add logic to send the message to the bot
+            // logic to send the message to the bot
         }
     };
 

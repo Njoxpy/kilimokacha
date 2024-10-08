@@ -17,6 +17,8 @@ const AddBlog = () => {
     setBlogDescription("");
     setThumbnailImage(null);
     setBlogAuthor("");
+
+    history.pushState("/")
   };
 
   return (

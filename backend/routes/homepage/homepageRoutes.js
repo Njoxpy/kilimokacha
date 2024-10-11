@@ -73,4 +73,12 @@ homeRouter.post("/contact", (req, res) => {
 
 // privacy policy
 
+// subscribe
+homeRouter.post("/subscribe", (req, res) => {
+    res.json('subscribing into the email list')
+})
+
+homeRouter.get("/search", (req, res) => {
+    res.json("searching for ....")
+})
 module.exports = homeRouter;

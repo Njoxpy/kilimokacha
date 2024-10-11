@@ -61,6 +61,21 @@
         "blog_category": "Success Stories"
       },
       {
+        "id": 4,
+        "author_name": "Fatima Yusuf",
+        "thumbnail_image": "https://example.com/images/blog4.jpg",
+        "snippets": "How a small cassava farm in Tanzania turned into a successful business by leveraging local partnerships and markets.",
+        "date_written": "2024-09-15",
+        "read_time_count": 8,
+        "impressions": {
+          "likes": 200,
+          "comments": 45,
+          "shares": 25
+        },
+        "blog_title": "From Cassava Farm to Business: A Success Story in Tanzania",
+        "blog_category": "Success Stories"
+      },
+      {
         "id": 5,
         "author_name": "John Kamau",
         "thumbnail_image": "https://example.com/images/blog5.jpg",

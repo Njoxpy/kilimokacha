@@ -4,7 +4,7 @@ const Hero = () => {
     return (
         <>
             <div className="bg-green-600 text-white py-10 text-center njox relative">
-                <div className="absolute inset-0 bg-cover bg-center opacity-30 njox"></div> {/* Background Image */}
+                <div className="absolute inset-0 bg-cover bg-center opacity-30 njox"></div>
                 <div className="relative max-w-3xl mx-auto px-4">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">Empowering Farmers In Africa</h2>
                     <p className="text-sm sm:text-base md:text-lg mt-2 font-light">

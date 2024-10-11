@@ -6,6 +6,7 @@ const AddBlog = () => {
   const [blogDescription, setBlogDescription] = useState("");
   const [thumbnailImage, setThumbnailImage] = useState("");
   const [blogAuthor, setBlogAuthor] = useState("janeth nyagawa");
+  const [blogCategory, setBlogCategory] = useState("farming tips");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(true);
 
@@ -82,7 +83,28 @@ const AddBlog = () => {
 
           <div>
             <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
-              Author
+              Select Blog Category
+            </label>
+            <select
+              name="author"
+              id="author"
+              value={blogCategory}
+              onChange={(event) => {
+                setBlogCategory(event.target.value);
+              }}
+              required
+              className="w-full border border-gray-300 p-2 rounded focus:ring focus:ring-green-300"
+            >
+              <option value="farming tips">farming tips</option>
+              <option value="market trends">market trends</option>
+              <option value="sucess stories">sucess stories</option>
+              <option value="sustainability">sustainability</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
+              Select Author
             </label>
             <select
               name="author"

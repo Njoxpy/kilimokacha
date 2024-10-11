@@ -10,7 +10,7 @@ const BlogAuthor = () => {
                 <h3>Blog Author Page</h3>
                 <div>
                     {authors.map((author) => (
-                        <Link key={author.id} to={`/blogs/author/${author.id}`}>
+                        <Link key={author.id} to={`/blogs/author/${author.author_name}`}>
                             <div>
                                 <p>Author Name: {author.author_name}</p>
                             </div>
@@ -26,7 +26,6 @@ const BlogAuthor = () => {
 
 export default BlogAuthor;
 
-// use fetch hook to fecth the of author present into the website
 export const authorsLoader = async () => {
     const res = await fetch("http://localhost:3002/blogs")
 

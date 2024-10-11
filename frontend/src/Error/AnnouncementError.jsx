@@ -6,7 +6,7 @@ const AnnouncementError = () => {
         <>
             <div>
                 <h3>Announcement not found</h3>
-                <p>{error.message}</p>
+                <p>{error.message}, get back to <Link to={"/announcement"}>Announcement page</Link></p>
             </div>
         </>
     )

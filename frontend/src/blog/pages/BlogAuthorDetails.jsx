@@ -40,3 +40,6 @@ export const authorDetailsLoader = async ({ params }) => {
         throw new Response("Invalid JSON response", { status: 500 });
     }
 };
+
+
+// into this section, show the blog author profile image and the list of articles based on that author

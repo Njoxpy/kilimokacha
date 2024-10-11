@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Subscribe = () => {
     const [email, setEmail] = useState("");
+    const navigate = useNavigate()
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        navigate("/")
         setEmail("");
     };
 

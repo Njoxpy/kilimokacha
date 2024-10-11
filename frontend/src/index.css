@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* hello section image */
 .njox {
     background-image: url(./assets/images/chai.jpg);
     background-repeat: no-repeat;
@@ -12,7 +13,8 @@
     background-blend-mode: multiply;
 }
 
-.about-image{
+/* about page image */
+.about-image {
     background-image: url(./assets/images/biringanya.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -22,18 +24,20 @@
     background-blend-mode: multiply;
 }
 
+/* center latest blogs */
 .bloglist-center {
     max-width: 900px;
     margin: 0 auto;
 }
 
+/* fixed footer at bottom */
 .footer-mh {
     bottom: 0;
     position: fixed;
     width: 100%;
 }
 
-.margin{
+.margin {
     margin: 47px;
 }
 

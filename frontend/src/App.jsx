@@ -51,6 +51,7 @@ import UserError from "./Error/UserError";
 import AnnouncementError from "./Error/AnnouncementError";
 import AuthorError from "./blog/error/BlogAuthorError"
 import AnnouncementForm from "./auth/AnnouncementForm";
+import ThankYou from "./blog/pages/ThankYou"
 
 // Router
 const router = createBrowserRouter(
@@ -76,7 +77,7 @@ const router = createBrowserRouter(
       <Route path={"privacy"} element={<Privacy />} />
       <Route path={"auth/login"} element={<Login />} />
       <Route path={"auth/register"} element={<Register />} />
-      <Route path={"auth/new-password"} element={<ForgotPassword />} />
+      <Route path={"auth/new/password"} element={<ForgotPassword />} />
 
       <Route path={"user"} element={<UserProfileLayout />}>
         <Route index element={<UserProfile />} />

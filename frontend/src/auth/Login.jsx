@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import Footer from "../components/Footer";
 
 import { Link } from "react-router-dom";
@@ -15,7 +17,7 @@ const Login = () => {
                     <input className="w-full p-2 mb-4 border border-gray-300 rounded" type="password" id="password" />
 
 
-                    <p className="mb-4 text-green-600"><Link to={"/auth/new-password"}>Forgot Password?</Link></p>
+                    <p className="mb-4 text-green-600"><Link to={"/auth/new/password"}>Forgot Password?</Link></p>
 
                     <button className="w-full p-2 bg-green-600 text-white rounded">Login</button>
 

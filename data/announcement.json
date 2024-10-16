@@ -1,0 +1,45 @@
+{
+    "announcements": [
+      {
+        "id": 1,
+        "title": "New Feature Launch: Community Forum",
+        "date": "2024-10-01",
+        "content": "We are excited to announce the launch of our new Community Forum! Join now to connect with fellow farmers, share experiences, and get advice on agricultural practices.",
+        "cta": {
+          "text": "Join the Forum",
+          "link": "/community-forum"
+        }
+      },
+      {
+        "id": 2,
+        "title": "Upcoming Webinar: Sustainable Farming Practices",
+        "date": "2024-10-10",
+        "content": "Don't miss our upcoming webinar on sustainable farming practices, hosted by expert agronomists. Learn tips and tricks to enhance your farming methods.",
+        "cta": {
+          "text": "Register Now",
+          "link": "/webinars/sustainable-farming"
+        }
+      },
+      {
+        "id": 3,
+        "title": "Weekly Market Price Update",
+        "date": "2024-10-05",
+        "content": "Check out our weekly market price update to stay informed about the best prices for your crops. Make informed selling decisions!",
+        "cta": {
+          "text": "View Market Prices",
+          "link": "/market-prices"
+        }
+      },
+      {
+        "id": 4,
+        "title": "Weather Forecast Update",
+        "date": "2024-10-08",
+        "content": "Stay prepared with the latest weather forecasts tailored for your region. Know when to plant, irrigate, or harvest.",
+        "cta": {
+          "text": "Check Weather Forecast",
+          "link": "/weather-forecasts"
+        }
+      }
+    ]
+  }
+  

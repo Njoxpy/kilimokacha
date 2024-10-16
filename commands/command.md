@@ -13,3 +13,6 @@ npx json-server ../data/blogs.json --port 3002
 ```
 
 
+```js
+npx json-server ../data/announcement.json --port 3004
+```

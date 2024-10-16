@@ -1,23 +1,43 @@
 import { Link } from "react-router-dom";
-import Footer from "../../components/Footer"
+import Footer from "../../components/Footer";
+
+// useFetch import
+import useFetch from "../../hooks/useFetch";
 
 const Announcement = () => {
-    return (
-        <>
-            <div className="p-4">
-                <div className="announce-1">
-                    <h2>Shamla shamla za nane nane Sokoine...</h2>
-                    <button><Link to="1">soma zaidi</Link></button>
-                </div>
-                <div className="announce-1">
-                    <h2>Shamla shamla za nane nane Sokoine...</h2>
-                    <button><Link to="2">soma zaidi</Link></button>
-                </div>
-            </div>
+  const {
+    data: announcements,
+    loading,
+    error,
+  } = useFetch("http://localhost:3004/announcements");
 
-            <Footer />
-        </>
-    )
-}
+  if (loading) {
+    return <div className="text-center">Loading....</div>; // Return a loading message
+  }
+
+  if (error) {
+    return <div className="text-red-500 text-center">Error.... {error}</div>; // Return an error message
+  }
+
+  return (
+    <>
+      <div className="p-4 bg-green-300">
+        <h2>Announcements</h2>
+        {announcements.map((announcement) => (
+          <div key={announcement.id}>
+            <h3 className="font-bold">{announcement.title}</h3>
+            <p>
+              Date: <small>{announcement.date}</small>
+            </p>
+            <button>
+              <Link to={`${announcement.id}`}>soma zaidi</Link>
+            </button>
+          </div>
+        ))}
+      </div>
+      <Footer />
+    </>
+  );
+};
 
 export default Announcement;

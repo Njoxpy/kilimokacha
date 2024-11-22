@@ -5,6 +5,7 @@ import Sponsors from "./Sponsors"
 import Footer from "../components/Footer"
 import ChatBot from "../pages/bot/ChatBot"
 import Subscribe from "../blog/components/Subscribe"
+import NewSponsors from "./NewSponsor"
 
 const Home = () => {
     return (
@@ -12,7 +13,7 @@ const Home = () => {
             <div>
                 <Hero />
                 <LatestBlogs />
-                <Sponsors />
+                <NewSponsors />
                 <Subscribe />
                 <Footer />
                 <ChatBot />

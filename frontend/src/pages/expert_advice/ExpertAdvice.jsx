@@ -1,5 +1,7 @@
 import React from 'react';
 import Footer from '../../components/Footer';
+import Loading from "../../components/Loading"
+import ErrorFetch from "../../components/ErrorFetch"
 
 import useFetch from "../../hooks/useFetch"
 import { Link } from 'react-router-dom';
@@ -7,8 +9,8 @@ import { Link } from 'react-router-dom';
 const ExpertAdvice = () => {
     const { data: adviceData, loading, error } = useFetch("http://localhost:3003/advice")
 
-    if (loading) return <div className="text-center">Loading...</div>;
-    if (error) return <div className="text-red-500 text-center">{error}</div>;
+    if (loading) return <Loading />;
+    if (error) return <ErrorFetch />;
 
     return (
         <>

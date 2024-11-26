@@ -13,16 +13,20 @@ const blogSchema = Schema(
             required: true,
         },
         thumbnail_image: {
-            type: Object,
-            required: false,
+            type: String,
+            required: true
         },
         author: {
             type: String,
             required: true,
         },
-        createdAt: {
-            type: Date,
-            default: Date.now
+        category: {
+            type: String,
+            required: true
         }
-    }
+    },
+    { timestamps: true }
 )
+
+const Blog = mongoose.model("Blogs", blogSchema)
+module.exports = Blog

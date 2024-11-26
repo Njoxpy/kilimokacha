@@ -1,5 +1,5 @@
 const express = require("express")
-const { getAllCrops, getCropById, createCrop } = require("../controllers/marketController")
+const { getAllCrops, getCropById, createCrop } = require("../controllers/market.controller")
 const { validateCrop } = require("../middleware/validateCrop")
 const router = express.Router()
 

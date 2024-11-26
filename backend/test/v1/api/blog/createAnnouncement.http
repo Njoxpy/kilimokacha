@@ -1,0 +1,7 @@
+POST http://localhost:5000/api/v1/announcements 
+Content-Type: : application/json
+
+{
+    "title":"New Feature Launch: Community Forum",
+    "body": "We are excited to announce the launch of our new Community Forum! Join now to connect with fellow farmers, share experiences, and get advice on agricultural practices."
+}

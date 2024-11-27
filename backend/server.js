@@ -11,11 +11,13 @@ app.use(cors())
 const marketRoutes = require("./routes/market.routes")
 const blogRoutes = require("./routes/blog.routes")
 const announcementRoutes = require("./routes/announcement.routes")
+const expertAdviceRoutes = require("./routes/advice.routes")
 
 
 app.use("/api/v1/market", marketRoutes)
 app.use("/api/v1/blogs", blogRoutes)
 app.use("/api/v1/announcements", announcementRoutes)
+app.use("/api/v1/expert-advice", expertAdviceRoutes)
 
 // middleware
 app.use((req, res, next) => {

@@ -12,6 +12,7 @@ const marketRoutes = require("./routes/market.routes")
 const blogRoutes = require("./routes/blog.routes")
 const announcementRoutes = require("./routes/announcement.routes")
 const expertAdviceRoutes = require("./routes/advice.routes")
+const connectDB = require('./config/DB')
 
 
 app.use("/api/v1/market", marketRoutes)
@@ -30,15 +31,8 @@ app.get("/", (req, res) => {
 })
 
 // connect to mongoDB
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
+connectDB()
 
-        // listen for requests
-        app.listen(process.env.PORT, () => {
-            console.log(`listening on port: http://localhost:${process.env.PORT} && connected to DB`)
-        })
-    })
-    .catch((error) => {
-        console.error(`failed to connect: ${error}`)
-    })
-
+app.listen(process.env.PORT, () => {
+    console.log(`listening on port: http://localhost:${process.env.PORT} && connected to DB`)
+})

@@ -1,5 +1,5 @@
 const express = require('express')
-const { getAllBlogs, createBlog } = require('../controllers/blog.controller')
+const { getAllBlogs, createBlog, getBlogBydId, updateBlogById, deleteBlogById } = require('../controllers/blog.controller')
 
 const blogRouter = express.Router()
 
@@ -17,6 +17,17 @@ blogRouter.get("/search", (req, res) => {
 });
 
 // POST: add blog
-blogRouter.post("/", createBlog)
+blogRouter.post("/new", createBlog)
+
+// get blog by id
+blogRouter.get("/:id", getBlogBydId)
+
+// update blog by id
+blogRouter.patch("/:id", updateBlogById)
+
+// delete blog by id
+blogRouter.delete("/:id", deleteBlogById)
+
+// filtering blog by category
 
 module.exports = blogRouter

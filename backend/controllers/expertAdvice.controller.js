@@ -75,7 +75,7 @@ const updateAdviceById = async (req, res) => {
     }
     try {
         const updatedAdviceById = await Announcement.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
-        if (!adviceById) {
+        if (!updatedAdviceById) {
             return res.status(404).json("failed to get advice")
         }
         res.status(200).json({ message: updateAdviceById })

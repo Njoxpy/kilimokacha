@@ -47,9 +47,46 @@ const createAnnouncement = async (req, res) => {
     }
 }
 
+// update announcement by id
+const updateAnnouncementBydId = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(404).json({ message: 'we could not find the announcement with that id' })
+    }
+    try {
+        const updatedAnnouncement = await Blog.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
+        if (!updatedAnnouncement) {
+            res.status(404).json({ message: "not found" })
+        }
+        res.status(200).json({ message: `update sucessfully: ${updatedAnnouncement}` })
+    } catch (error) {
+        res.status(400).json({ message: "failed to update announcement" })
+    }
+
+}
+
+// delete announcement by id
+const deleteAnnouncementById = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(404).json({ message: 'we could not find the announcement with that id' })
+    }
+    try {
+        const deletedAnnouncement = await Announcement.findOneAndDelete({ _id: id })
+        if (!deletedAnnouncement) {
+            res.status(404).json({ message: "not found" })
+        }
+        res.status(200).json({ message: `announcement deleted sucessfully: ${deletedAnnouncement}` })
+    } catch (error) {
+        res.status(400).json({ message: "failed to update announcement" })
+    }
+
+}
 
 module.exports = {
     getAllAnnouncements,
     createAnnouncement,
-    getAnnouncementById
+    getAnnouncementById,
+    updateAnnouncementBydId,
+    deleteAnnouncementById
 }

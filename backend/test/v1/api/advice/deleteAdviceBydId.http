@@ -1,0 +1,1 @@
+DELETE http://localhost:5000/api/v1/expert-advice/674788cc4155b97b5cbd7942 HTTP/1.1

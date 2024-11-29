@@ -1,6 +1,4 @@
 const mongoose = require("mongoose")
-const express = require('express')
-const app = express()
 
 const connectDB = () => mongoose.connect(process.env.MONGO_URI)
     .then(() => {
@@ -9,6 +7,7 @@ const connectDB = () => mongoose.connect(process.env.MONGO_URI)
     })
     .catch((error) => {
         console.error(`failed to connect: ${error}`)
+        process.exit(1)
     })
 
 module.exports = connectDB

@@ -46,7 +46,7 @@ const getAdviceById = async (req, res) => {
         }
         res.status(200).json(advice)
     } catch (error) {
-        res.status(404).json({ message: "advice not found", details: error })
+        res.status(404).json({ message: "failed to get advice", details: error })
     }
 }
 
@@ -63,7 +63,7 @@ const deleteAdviceById = async (req, res) => {
         }
         res.status(200).json({ message: "advice deleted sucessfully", details: deletedAdvice })
     } catch (error) {
-        res.status(404).json("failed to delete")
+        res.status(404).json({ message: "failed to delete" })
     }
 }
 
@@ -80,7 +80,7 @@ const updateAdviceById = async (req, res) => {
         }
         res.status(200).json({ message: updateAdviceById })
     } catch (error) {
-        res.status(404).json("failed to update")
+        res.status(404).json({ message: "failed to update" })
     }
 }
 module.exports = {

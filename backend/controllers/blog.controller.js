@@ -31,8 +31,6 @@ const getBlogBydId = async (req, res) => {
     }
 }
 
-// get blogs by category
-
 // create blog
 const createBlog = async (req, res) => {
     const { title, body, author, category, thumbnail_image } = req.body

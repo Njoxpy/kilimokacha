@@ -17,7 +17,7 @@ const marketSchema = new mongoose.Schema(
         supplyStatus: {
             type: String,
             required: true,
-            default: true
+            default: "in stock"
         }
     },
     { timestamps: true }

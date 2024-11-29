@@ -1,5 +1,5 @@
 const express = require("express")
-const { getAllCrops, getCropById, createCrop } = require("../controllers/market.controller")
+const { getAllCrops, getCropById, createCrop, updateCropBydId, deleteCropById } = require("../controllers/market.controller")
 const { validateCrop } = require("../middleware/validateCrop")
 const router = express.Router()
 
@@ -17,7 +17,9 @@ router.get("/crops/:id", getCropById)
 router.post("/crops", validateCrop, createCrop)
 
 // update product
+router.patch("/crops/:id", updateCropBydId)
 
 // delete product by id
+router.delete("/crops/:id", deleteCropById)
 
 module.exports = router

@@ -19,6 +19,7 @@ const getAllCrops = async (req, res) => {
     }
 }
 
+// get crop by id
 const getCropById = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -48,8 +49,43 @@ const createCrop = async (req, res) => {
     }
 }
 
+// update crop by id
+const updateCropBydId = async (params) => {
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ message: "crop not found" })
+    }
+    try {
+        const updatedCrop = await Crops.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
+        if (!updatedCrop) {
+            return res.status(404).json({ message: "crop not found" })
+        }
+        res.status(200).json({ message: `update sucessfully: ${updatedCrop}` })
+    } catch (error) {
+        res.status(500).json({ message: "failed to update crop", details: error })
+    }
+}
+
+// delete crop by id
+const deleteCropById = async (req, res) => {
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ message: "crop not found" })
+    }
+    try {
+        const deletedCrop = await Crops.findOneAndDelete({ _id: id })
+        if (!deletedCrop) {
+            return res.status(404).json({ message: "failed to get the crop" })
+        }
+        res.status(200).json({ message: `crop deleted sucessfully: ${deletedCrop}` })
+    } catch (error) {
+        res.status(500).json({ message: "failed to delete crop", details: error })
+    }
+}
 module.exports = {
     getAllCrops,
     getCropById,
-    createCrop
+    createCrop,
+    updateCropBydId,
+    deleteCropById
 }

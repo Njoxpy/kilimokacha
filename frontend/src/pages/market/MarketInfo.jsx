@@ -1,21 +1,7 @@
 import React from 'react';
 import Footer from '../../components/Footer';
-import useFetch from '../../hooks/useFetch';
 
 const MarketInfo = () => {
-
-    // create state for markets
-    const URL = "http://localhost:5000/api/v1/market/crops"
-    const { data: crops, loading, error } = useFetch(URL)
-
-    if (loading) {
-        <div className='text-yellow-600 text-center'>loading</div>
-    }
-    if (error) {
-        <div>
-            <p className="text-red-500 text-center">There was an error when fetching data..</p>
-        </div>
-    }
     return (
         <>
             <div className="min-h-screen bg-gray-50">
@@ -45,19 +31,48 @@ const MarketInfo = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {crops.map((crop, index) => (
-                                        <tr key={crop._id}>
-                                            <td className="py-2 px-4 border">{crop.crop}</td>
-                                            <td className="py-2 px-4 border">{crop.price}</td>
-                                            <td className="py-2 px-4 border">{crop.location}</td>
-                                            <td className="py-2 px-4 border text-red-600">{crop.supplyStatus}</td>
-                                            {/* 
-                                            conditional rendering if in stock use  text-green-600
-                                            limited supply text-red-600 = out of stock
-                                            
-                                            */}
-                                        </tr>
-                                    ))}
+                                    <tr>
+                                        <td className="py-2 px-4 border">Maize</td>
+                                        <td className="py-2 px-4 border">$0.50</td>
+                                        <td className="py-2 px-4 border">Dodoma</td>
+                                        <td className="py-2 px-4 border text-green-600">In Stock</td>
+                                    </tr>
+                                    <tr className="bg-gray-100">
+                                        <td className="py-2 px-4 border">Rice</td>
+                                        <td className="py-2 px-4 border">$1.00</td>
+                                        <td className="py-2 px-4 border">Dar es Salaam</td>
+                                        <td className="py-2 px-4 border text-red-600">Limited Supply</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 border">Beans</td>
+                                        <td className="py-2 px-4 border">$0.80</td>
+                                        <td className="py-2 px-4 border">Arusha</td>
+                                        <td className="py-2 px-4 border text-green-600">In Stock</td>
+                                    </tr>
+                                    <tr className="bg-gray-100">
+                                        <td className="py-2 px-4 border">Potatoes</td>
+                                        <td className="py-2 px-4 border">$0.45</td>
+                                        <td className="py-2 px-4 border">Mwanza</td>
+                                        <td className="py-2 px-4 border text-green-600">In Stock</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 border">Tomatoes</td>
+                                        <td className="py-2 px-4 border">$0.90</td>
+                                        <td className="py-2 px-4 border">Kigoma</td>
+                                        <td className="py-2 px-4 border text-red-600">Out of Stock</td>
+                                    </tr>
+                                    <tr className="bg-gray-100">
+                                        <td className="py-2 px-4 border">Onions</td>
+                                        <td className="py-2 px-4 border">$0.70</td>
+                                        <td className="py-2 px-4 border">Tabora</td>
+                                        <td className="py-2 px-4 border text-green-600">In Stock</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2 px-4 border">Carrots</td>
+                                        <td className="py-2 px-4 border">$0.65</td>
+                                        <td className="py-2 px-4 border">Moshi</td>
+                                        <td className="py-2 px-4 border text-red-600">Limited Supply</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

@@ -5,12 +5,6 @@ const Announcement = require("../models/announcementModel")
 
 // create advice
 const createAdvice = async (req, res) => {
-    const { title, image, description } = req.body
-
-    if (!title || !image || !description) {
-        return res.json({ message: "fill all required fields" })
-    }
-
     try {
         const advice = await Advice.create({ title, image, description })
         res.status(200).json(advice)

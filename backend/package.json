@@ -29,6 +29,7 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "pug": "^3.0.3",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "validator": "^13.12.0"
   }
 }

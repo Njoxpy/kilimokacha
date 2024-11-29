@@ -22,7 +22,8 @@ const blogSchema = Schema(
         },
         category: {
             type: String,
-            required: true
+            required: true,
+            default: "farming tips"
         }
     },
     { timestamps: true }

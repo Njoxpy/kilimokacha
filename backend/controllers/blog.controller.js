@@ -4,7 +4,7 @@ const Blog = require("../models/BlogModels")
 // get all blogs
 const getAllBlogs = async (req, res) => {
     try {
-        const blogs = await Blog.find()
+        const blogs = await Blog.find({}).sort({ createdAt: -1 })
         if (blogs.length === 0) {
             return res.json({ message: "There no blogs for now" })
         }

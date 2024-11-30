@@ -36,5 +36,5 @@ app.get("/", (req, res) => {
 connectDB()
 
 app.listen(process.env.PORT, () => {
-    console.log(`listening on port: http://localhost:${process.env.PORT} && connected to DB`)
+    console.log(`listening on port: http://localhost:${process.env.PORT}`)
 })

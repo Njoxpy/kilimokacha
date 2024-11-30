@@ -4,7 +4,7 @@ const validateAdviceCreate = require("../middleware/validateAdviceCreate")
 const router = express.Router()
 
 // add expert advice
-router.post("/", validateAdviceCreate, createAdvice)
+router.post("/new", validateAdviceCreate, createAdvice)
 
 // get all advices
 router.get("/", getAllAdvices)

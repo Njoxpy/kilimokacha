@@ -1,12 +1,15 @@
 require('dotenv').config()
-
+const path = require("path")
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require("cors")
 const app = express()
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
 const marketRoutes = require("./routes/market.routes")
 const blogRoutes = require("./routes/blog.routes")

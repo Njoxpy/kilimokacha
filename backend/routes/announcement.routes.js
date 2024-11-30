@@ -7,7 +7,7 @@ router.get("/", getAllAnnouncements)
 // get announcement by id
 router.get("/:id", getAnnouncementById)
 // create announcement
-router.post("/", createAnnouncement)
+router.post("/new", createAnnouncement)
 // update announcement
 router.patch("/", updateAnnouncementBydId)
 // delete announcement by id

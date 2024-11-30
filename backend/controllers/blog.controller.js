@@ -32,19 +32,6 @@ const getBlogBydId = async (req, res) => {
 }
 
 // create blog
-const createBlog = async (req, res) => {
-    const { title, body, author, category, thumbnail_image } = req.body
-
-    if (!title || !body || !author || !category || !thumbnail_image) {
-        return res.json({ message: "all required fields must be filled" })
-    }
-    try {
-        const blog = await Blog.create({ title, body, author, category, thumbnail_image })
-        res.status(200).json(blog)
-    } catch (error) {
-        res.status(400).json({ message: "failed to create blog", details: error.message })
-    }
-}
 
 // update blog by id
 const updateBlogById = async (req, res) => {
@@ -86,7 +73,6 @@ const deleteBlogById = async (req, res) => {
 
 module.exports = {
     getAllBlogs,
-    createBlog,
     getBlogBydId,
     updateBlogById,
     deleteBlogById

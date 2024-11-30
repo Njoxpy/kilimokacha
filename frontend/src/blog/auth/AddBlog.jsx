@@ -2,24 +2,37 @@ import { useState } from "react";
 import Footer from "../../components/Footer";
 
 const AddBlog = () => {
-  const [blogTitle, setBlogTitle] = useState("");
-  const [blogDescription, setBlogDescription] = useState("");
-  const [thumbnailImage, setThumbnailImage] = useState("");
-  const [blogAuthor, setBlogAuthor] = useState("janeth nyagawa");
-  const [blogCategory, setBlogCategory] = useState("farming tips");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [thumbnail_image, setThumbnail_image] = useState("");
+  const [author, setAuthor] = useState("janeth nyagawa");
+  const [category, setCategory] = useState("farming tips");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(true);
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const URL = "http://localhost:5000/api/v1/blogs/new"
+    fetch(URL, {
+      "method": "POST",
+      "content-type": "application/json"
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("response not ok");
+        }
+        console.log(response);
+      })
+      .catch(err => {
+        console.error(err);
+      });
 
-    setBlogTitle("");
-    setBlogDescription("");
-    setThumbnailImage(null);
-    setBlogAuthor("");
+    setTitle("");
+    setBody("");
+    setThumbnail_image("");
+    setAuthor("");
 
-    history.pushState("/")
   };
 
   return (
@@ -35,9 +48,9 @@ const AddBlog = () => {
               name="blog-title"
               id="blog-title"
               placeholder="Enter Blog Title"
-              value={blogTitle}
+              value={title}
               onChange={(event) => {
-                setBlogTitle(event.target.value);
+                setTitle(event.target.value);
               }}
               required
               autoFocus
@@ -54,9 +67,9 @@ const AddBlog = () => {
               id="blog-description"
               cols="30"
               rows="4"
-              value={blogDescription}
+              value={body}
               onChange={(event) => {
-                setBlogDescription(event.target.value);
+                setBody(event.target.value);
               }}
               required
               className="w-full border border-gray-300 p-2 rounded focus:ring focus:ring-green-300"
@@ -73,9 +86,9 @@ const AddBlog = () => {
               id="thumbnail"
               accept="image/*"
               required
-              value={thumbnailImage}
+              value={thumbnail_image}
               onChange={(event) => {
-                setThumbnailImage(event.target.value);
+                setThumbnail_image(event.target.value);
               }}
               className="w-full border border-gray-300 p-2 rounded focus:ring focus:ring-green-300"
             />
@@ -88,9 +101,9 @@ const AddBlog = () => {
             <select
               name="author"
               id="author"
-              value={blogCategory}
+              value={category}
               onChange={(event) => {
-                setBlogCategory(event.target.value);
+                setCategory(event.target.value);
               }}
               required
               className="w-full border border-gray-300 p-2 rounded focus:ring focus:ring-green-300"
@@ -109,9 +122,9 @@ const AddBlog = () => {
             <select
               name="author"
               id="author"
-              value={blogAuthor}
+              value={author}
               onChange={(event) => {
-                setBlogAuthor(event.target.value);
+                setAuthor(event.target.value);
               }}
               required
               className="w-full border border-gray-300 p-2 rounded focus:ring focus:ring-green-300"

@@ -1,29 +1,19 @@
 const mongoose = require("mongoose")
 const Advice = require("../models/expertAdviceModel")
 const Announcement = require("../models/announcementModel")
+const ExpertAdvice = require("../models/expertAdviceModel")
 
-
-// create advice
-const createAdvice = async (req, res) => {
-    try {
-        const advice = await Advice.create({ title, image, description })
-        res.status(200).json(advice)
-    } catch (error) {
-        res.status(404).json({ message: "failed to create", details: error })
-    }
-
-}
 
 // get all advices
 const getAllAdvices = async (req, res) => {
     try {
-        const advices = await Advice.find()
+        const advices = await Advice.find({}).sort({ createdAt: -1 })
         if (advices.length === 0) {
             res.json({ message: "no advices for now" })
         }
         res.status(200).json(advices)
     } catch (error) {
-        res.status(404).json({ message: "failed to fetch", details: error })
+        res.status(404).json({ message: "failed to fetch", error: error.message })
     }
 }
 
@@ -34,13 +24,13 @@ const getAdviceById = async (req, res) => {
         return res.status(404).json({ message: "no such advice" })
     }
     try {
-        const advice = await Advice.findById({ _id: id })
+        const advice = await Advice.findOne({ _id: id })
         if (!advice) {
             res.json({ message: "advice not found" })
         }
         res.status(200).json(advice)
     } catch (error) {
-        res.status(404).json({ message: "failed to get advice", details: error })
+        res.status(404).json({ message: "failed to get advice", error: error.message })
     }
 }
 
@@ -57,7 +47,7 @@ const deleteAdviceById = async (req, res) => {
         }
         res.status(200).json({ message: "advice deleted sucessfully", details: deletedAdvice })
     } catch (error) {
-        res.status(404).json({ message: "failed to delete" })
+        res.status(404).json({ message: "failed to delete", error: error.message })
     }
 }
 
@@ -65,20 +55,20 @@ const deleteAdviceById = async (req, res) => {
 const updateAdviceById = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ message: "advice not found" })
+        return res.status(404).json({ message: "advice with that id not found" })
     }
     try {
-        const updatedAdviceById = await Announcement.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
-        if (!updatedAdviceById) {
-            return res.status(404).json("failed to get advice")
+        const updatedAdvice = await ExpertAdvice.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
+        if (!updatedAdvice) {
+            return res.status(404).json({ message: "advice not found" })
         }
-        res.status(200).json({ message: updateAdviceById })
+        res.status(200).json({ message: `update sucessfully`, details: updatedAdvice })
     } catch (error) {
-        res.status(404).json({ message: "failed to update" })
+        res.status(500).json({ message: "failed to update advice", error: error.message })
     }
 }
+
 module.exports = {
-    createAdvice,
     getAllAdvices,
     getAdviceById,
     deleteAdviceById,

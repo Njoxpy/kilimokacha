@@ -3,10 +3,6 @@ const { getAllCrops, getCropById, createCrop, updateCropBydId, deleteCropById } 
 const { validateCrop } = require("../middleware/validateCrop")
 const router = express.Router()
 
-// all
-router.get("/", (req, res) => {
-    res.json({ message: "market trends" })
-})
 // get all crops
 router.get("/crops", getAllCrops)
 
@@ -14,7 +10,7 @@ router.get("/crops", getAllCrops)
 router.get("/crops/:id", getCropById)
 
 // create new product
-router.post("/crops", validateCrop, createCrop)
+router.post("/crops/new", validateCrop, createCrop)
 
 // update product
 router.patch("/crops/:id", updateCropBydId)

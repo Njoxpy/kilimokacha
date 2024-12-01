@@ -10,7 +10,7 @@ const getAllBlogs = async (req, res) => {
         }
         res.status(200).json(blogs)
     } catch (error) {
-        res.status(500).json({ message: "failed to get product details", message: error })
+        res.status(500).json({ message: "failed to get product details", error: error.message })
     }
 }
 
@@ -23,15 +23,13 @@ const getBlogBydId = async (req, res) => {
     try {
         const blog = await Blog.findById({ _id: id })
         if (!blog) {
-            return res.json({ mesage: 'could not get blog with that details' })
+            return res.json({ mesage: "could not get blog with that details" })
         }
         res.status(200).json(blog)
     } catch (error) {
-        res.status(404).json({ message: "could not fetch blog", details: error })
+        res.status(404).json({ message: "could not fetch blog", error: error.message })
     }
 }
-
-// create blog
 
 // update blog by id
 const updateBlogById = async (req, res) => {
@@ -46,9 +44,9 @@ const updateBlogById = async (req, res) => {
         if (!updatedBlog) {
             return res.status(404).json({ message: "could not get the blog with that id" })
         }
-        res.status(200).json({ message: "updated sucessfully", details: updatedBlog })
+        res.status(200).json({ message: "updated sucessfully", updatedBlog })
     } catch (error) {
-        res.status(404).json({ message: "could not update blog", details: error })
+        res.status(404).json({ message: "could not update blog", error: error.message })
     }
 }
 
@@ -63,9 +61,9 @@ const deleteBlogById = async (req, res) => {
         if (!deletedBlog) {
             return res.status(404).json({ message: "could not get the blog" })
         }
-        res.status(200).json({ message: `deleted sucessfully: ${deletedBlog}` })
+        res.status(200).json({ message: "deleted sucessfully", deletedBlog })
     } catch (error) {
-        res.status(404).json({ message: "could not update blog", details: error })
+        res.status(404).json({ message: "could not update blog", error: error.message })
     }
 }
 

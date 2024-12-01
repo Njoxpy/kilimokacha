@@ -19,6 +19,7 @@ const blogSchema = Schema(
         author: {
             type: String,
             required: true,
+            refer: "User"
         },
         category: {
             type: String,

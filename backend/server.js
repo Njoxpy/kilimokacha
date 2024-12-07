@@ -19,7 +19,7 @@ const userRoutes = require("./routes/user.routes")
 const connectDB = require('./config/DB')
 
 
-app.use("/api/v1/market", marketRoutes)
+app.use("/api/v1/crops", marketRoutes)
 app.use("/api/v1/blogs", blogRoutes)
 app.use("/api/v1/announcements", announcementRoutes)
 app.use("/api/v1/expert-advices", expertAdviceRoutes)

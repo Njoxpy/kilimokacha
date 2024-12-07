@@ -4,18 +4,20 @@ const { validateCrop } = require("../middleware/validateCrop")
 const router = express.Router()
 
 // get all crops
-router.get("/crops", getAllCrops)
+router.get("/", getAllCrops)
 
 // get crop by id
-router.get("/crops/:id", getCropById)
+router.get("/:id", getCropById)
 
 // create new product
-router.post("/crops/new", validateCrop, createCrop)
+router.post("/new", validateCrop, createCrop)
 
 // update product
-router.patch("/crops/:id", updateCropBydId)
+router.patch("/:id", updateCropBydId)
 
 // delete product by id
-router.delete("/crops/:id", deleteCropById)
+router.delete("/:id", deleteCropById)
+
+// implement functionality for users to search by and filter(name, loaction ,supply status)
 
 module.exports = router

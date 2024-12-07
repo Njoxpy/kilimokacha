@@ -20,10 +20,10 @@ const upload = multer({ storage: storage });
 
 // add expert advice
 router.post("/new", validateAdviceCreate, router.post("/new", upload.single("image"), async (req, res) => {
-    const { title, image, description } = req.body
+    const { title, image, description, author } = req.body
     const thumbnail_image = req.file ? req.file.filename : null; // The image file name from Multer
 
-    if (!title || !image || !description) {
+    if (!title || !image || !description || !author) {
         return res.json({ message: "all required fields must be filled" })
     }
     try {

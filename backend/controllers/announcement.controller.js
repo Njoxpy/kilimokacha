@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const Announcement = require("../models/announcementModel")
+const { OK, NOT_FOUND, SERVER_ERROR } = require("../constants/responseCode")
 
 // get all announcements
 const getAllAnnouncements = async (req, res) => {
@@ -11,9 +12,9 @@ const getAllAnnouncements = async (req, res) => {
         if (announcements.length === 0) {
             return res.json({ message: "no announcements for now" })
         }
-        res.status(200).json(announcements)
+        res.status(OK).json(announcements)
     } catch (error) {
-        res.status(404).json({ message: "failed to fetch announcements", error: error.message })
+        res.status(NOT_FOUND).json({ message: "failed to fetch announcements", error: error.message })
     }
 }
 
@@ -25,25 +26,25 @@ const getAnnouncementById = async (req, res) => {
     }
     try {
         const announcement = await Announcement.findOne({ _id: id })
-        res.status(200).json(announcement)
+        res.status(OK).json(announcement)
     } catch (error) {
-        res.status(400).json({ message: "failed to fetch announcement", error: error.message })
+        res.status(NOT_FOUND).json({ message: "failed to fetch announcement", error: error.message })
     }
 }
 
 // create announcement
 const createAnnouncement = async (req, res) => {
-    const { title, body } = req.body
+    const { title, body, author } = req.body
 
-    if (!title || !body) {
+    if (!title || !body || !author) {
         res.json({ message: "fill all required fields" })
     }
     try {
-        const announcements = await Announcement.create({ title, body })
-        res.status(200).json(announcements)
+        const announcements = await Announcement.create({ title, body, author })
+        res.status(OK).json(announcements)
 
     } catch (error) {
-        res.status(400).json({ message: "failed to add announcement", error: error.message })
+        res.status(NOT_FOUND).json({ message: "failed to add announcement", error: error.message })
     }
 }
 
@@ -51,16 +52,16 @@ const createAnnouncement = async (req, res) => {
 const updateAnnouncementBydId = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ message: "announcement with that id not found" })
+        return res.status(NOT_FOUND).json({ message: "announcement with that id not found" })
     }
     try {
         const updatedAnnouncement = await Announcement.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
         if (!updatedAnnouncement) {
-            return res.status(404).json({ message: "announcement not found" })
+            return res.status(NOT_FOUND).json({ message: "announcement not found" })
         }
-        res.status(200).json({ message: "update sucessfully", updatedAnnouncement })
+        res.status(OK).json({ message: "update sucessfully", updatedAnnouncement })
     } catch (error) {
-        res.status(500).json({ message: "failed to update announcement", error: error.message })
+        res.status(SERVER_ERROR).json({ message: "failed to update announcement", error: error.message })
     }
 }
 
@@ -68,16 +69,16 @@ const updateAnnouncementBydId = async (req, res) => {
 const deleteAnnouncementById = async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        res.status(404).json({ message: 'we could not find the announcement with that id' })
+        res.status(NOT_FOUND).json({ message: 'we could not find the announcement with that id' })
     }
     try {
         const deletedAnnouncement = await Announcement.findOneAndDelete({ _id: id })
         if (!deletedAnnouncement) {
-            res.status(404).json({ message: "not found" })
+            res.status(NOT_FOUND).json({ message: "not found" })
         }
-        res.status(200).json({ message: "announcement deleted sucessfully}", deletedAnnouncement })
+        res.status(OK).json({ message: "announcement deleted sucessfully}", deletedAnnouncement })
     } catch (error) {
-        res.status(400).json({ message: "failed to update announcement", error: error.message })
+        res.status(NOT_FOUND).json({ message: "failed to update announcement", error: error.message })
     }
 
 }

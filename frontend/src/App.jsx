@@ -21,6 +21,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Announcement from "./pages/announcement/Announcement";
 import AnnouncementForm from "./auth/AnnouncementForm";
+import MarketForm from "./auth/MarketForm";
 import ThankYou from "./blog/pages/ThankYou";
 import BlogPost from "./blog/pages/BlogPost";
 import AddExpertAdvice from "./pages/expert_advice/AddExpertAdvice";
@@ -43,6 +44,7 @@ import UserProfileLayout from "./layouts/UserProfileLayout";
 import AnnouncementLayout from "./layouts/AnnouncementLayout";
 import BlogAuthorLayout from "./blog/Layouts/BlogAuthorLayout";
 import CategoryLayout from "./blog/Layouts/CategoryLayout";
+import MarketLayout from "./layouts/MarketLayout"
 
 // Hooks
 
@@ -69,7 +71,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path={"market-info"} element={<MarketInfo />} />
+
+      <Route path="/market-info" element={<MarketLayout />}>
+        <Route index element={<MarketInfo />} />
+        <Route path="new" element={<MarketForm />} />
+      </Route>
 
       <Route path={"announcement"} element={<AnnouncementLayout />}>
         <Route index element={<Announcement />} />

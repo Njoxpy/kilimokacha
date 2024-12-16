@@ -15,7 +15,7 @@ const RootLayout = () => {
           <h1 className="uppercase">
             3 Simple pie charts illustrate Illinois soybean harvest so far
           </h1>
-          <Link to="announcement/">
+          <Link to="announcements/">
             <button className="bg-announceCta p-2 hover:bg-green-800 transition-all duration-400">
               Read more
             </button>
@@ -32,9 +32,8 @@ const RootLayout = () => {
             </button>
           </div>
           <nav
-            className={`md:flex ${
-              isMenuOpen ? "block" : "hidden"
-            } absolute md:relative bg-green-700 md:bg-transparent w-full md:w-auto`}
+            className={`md:flex ${isMenuOpen ? "block" : "hidden"
+              } absolute md:relative bg-green-700 md:bg-transparent w-full md:w-auto`}
           >
             <ul className="flex flex-col md:flex-row gap-5 md:gap-0 md:items-center p-4 md:p-0">
               <li>

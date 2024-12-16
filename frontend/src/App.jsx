@@ -77,7 +77,7 @@ const router = createBrowserRouter(
         <Route path="new" element={<MarketForm />} />
       </Route>
 
-      <Route path={"announcement"} element={<AnnouncementLayout />}>
+      <Route path={"announcements"} element={<AnnouncementLayout />}>
         <Route index element={<Announcement />} />
         <Route
           path={":announceId"}

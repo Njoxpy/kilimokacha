@@ -1,29 +1,34 @@
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
+import { useEffect, useContext } from "react";
+import { useAnnouncementContext } from "../../hooks/useAnnouncementsContext";
 
-// useFetch import
-import useFetch from "../../hooks/useFetch";
+import { baseURL } from "../../services/api_services"
 
 const Announcement = () => {
-  const {
-    data: announcements,
-    loading,
-    error,
-  } = useFetch("http://localhost:3004/announcements");
+  const { announcements, dispatch } = useAnnouncementContext()
+  const URL = `${baseURL}announcements`
+  // const [announcements, setAnnouncements] = useState(null)
 
-  if (loading) {
-    return <div className="text-center">Loading....</div>; // Return a loading message
-  }
+  useEffect(() => {
+    const fetchAnnouncements = async () => {
+      const response = await fetch(URL)
+      const json = await response.json()
 
-  if (error) {
-    return <div className="text-red-500 text-center">Error.... {error}</div>; // Return an error message
-  }
+      if (response.ok) {
+        // setAnnouncements(json)
+        dispatch({ type: "SET_ANNOUNCEMENTS", payload: json })
+      }
+    }
+
+    fetchAnnouncements()
+  }, [])
 
   return (
     <>
       <div className="p-4 bg-green-300">
         <h2>Announcements</h2>
-        {announcements.map((announcement) => (
+        {announcements && announcements.map((announcement) => (
           <div key={announcement.id}>
             <h3 className="font-bold">{announcement.title}</h3>
             <p>

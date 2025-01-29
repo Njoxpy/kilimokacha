@@ -1,16 +1,23 @@
-const express = require("express")
-const { getAllAnnouncements, createAnnouncement, updateAnnouncementBydId, getAnnouncementById, deleteAnnouncementById } = require("../controllers/announcement.controller")
-const router = express.Router()
+const express = require("express");
+const {
+  getAllAnnouncements,
+  createAnnouncement,
+  updateAnnouncementBydId,
+  getAnnouncementById,
+  deleteAnnouncementById,
+} = require("../controllers/announcement.controller");
+const validateObjectId = require("../middleware/validateObjectId");
+const router = express.Router();
 
 // get all announcement
-router.get("/", getAllAnnouncements)
+router.get("/", getAllAnnouncements);
 // get announcement by id
-router.get("/:id", getAnnouncementById)
+router.get("/:id", validateObjectId, getAnnouncementById);
 // create announcement
-router.post("/new", createAnnouncement)
+router.post("/new", createAnnouncement);
 // update announcement
-router.patch("/:id", updateAnnouncementBydId)
+router.patch("/:id", validateObjectId, updateAnnouncementBydId);
 // delete announcement by id
-router.delete("/:id", deleteAnnouncementById)
+router.delete("/:id", validateObjectId, deleteAnnouncementById);
 
-module.exports = router
+module.exports = router;

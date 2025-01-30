@@ -11,12 +11,16 @@ const router = express.Router();
 
 // get all announcement
 router.get("/", getAllAnnouncements);
+
 // get announcement by id
 router.get("/:id", validateObjectId, getAnnouncementById);
+
 // create announcement
-router.post("/new", createAnnouncement);
+router.post("/", createAnnouncement);
+
 // update announcement
 router.patch("/:id", validateObjectId, updateAnnouncementBydId);
+
 // delete announcement by id
 router.delete("/:id", validateObjectId, deleteAnnouncementById);
 

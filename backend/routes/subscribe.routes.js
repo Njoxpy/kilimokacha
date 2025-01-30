@@ -1,8 +1,30 @@
-const express = require('express')
-const { subscribe } = require('../controllers/subscribe.controller')
+const express = require("express");
+const router = express.Router();
 
-const router = express.Router()
+// model
+const {
+  subscribe,
+  getAllSubscribers,
+  getSubscriber,
+  updateSubscriber,
+  removeSubscriber,
+} = require("../controllers/subscribe.controller");
 
-router.post("/", subscribe)
+// middleware
+const validateObjectId = require("../middleware/validateObjectId");
 
-module.exports = router
+router.post("/", subscribe);
+
+// get subscribers
+router.get("/", getAllSubscribers);
+
+// get subscriber
+router.get("/:id", validateObjectId, getSubscriber);
+
+// update subscriber
+router.patch("/:id", validateObjectId, updateSubscriber);
+
+// delete subscriber
+router.delete("/:id", validateObjectId, removeSubscriber);
+
+module.exports = router;

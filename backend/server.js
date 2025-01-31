@@ -1,44 +1,54 @@
-require('dotenv').config()
-const path = require("path")
-const express = require('express')
-const cors = require("cors")
-const moragn = require("morgan")
-const app = express()
+require("dotenv").config();
+require("./config/passport");
+const passport = require("passport");
+const path = require("path");
+const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+const fs = require("fs");
+const app = express();
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(cors())
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-// static
-app.use("/uploads", express.static(path.join(__dirname, "uploads")))
+// passport
+app.use(passport.initialize());
 
-const marketRoutes = require("./routes/market.routes")
-const blogRoutes = require("./routes/blog.routes")
-const announcementRoutes = require("./routes/announcement.routes")
-const expertAdviceRoutes = require("./routes/advice.routes")
-const userRoutes = require("./routes/user.routes")
-const subscribeRoutes = require("./routes/subscribe.routes")
-const connectDB = require('./config/DB')
-const morgan = require('morgan')
+// Ensure the uploads directory exists
+const uploadDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
+// Static file serving for uploads
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.use("/api/v1/crops", marketRoutes)
-app.use("/api/v1/blogs", blogRoutes)
-app.use("/api/v1/announcements", announcementRoutes)
-app.use("/api/v1/expert-advices", expertAdviceRoutes)
-app.use("/api/v1/users", userRoutes)
-app.use("/api/v1/subscribe", subscribeRoutes)
+// Routes
+const marketRoutes = require("./routes/market.routes");
+const blogRoutes = require("./routes/blog.routes");
+const announcementRoutes = require("./routes/announcement.routes");
+const expertAdviceRoutes = require("./routes/advice.routes");
+const userRoutes = require("./routes/user.routes");
+const subscribeRoutes = require("./routes/subscribe.routes");
 
-// middleware
-app.use(morgan("dev"))
+// Connect DB
+const connectDB = require("./config/DB");
 
-// subscribe
+// Use routes
+app.use("/api/v1/crops", marketRoutes);
+app.use("/api/v1/blogs", blogRoutes);
+app.use("/api/v1/announcements", announcementRoutes);
+app.use("/api/v1/expert-advices", expertAdviceRoutes);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/subscribe", subscribeRoutes);
 
-// contact
+// Middleware
+app.use(morgan("dev"));
 
-// connect to mongoDB
-connectDB()
+// Connect to MongoDB
+connectDB();
 
 app.listen(process.env.PORT, () => {
-    console.log(`listening on port: http://localhost:${process.env.PORT}`)
-})
+  console.log(`Listening on port: http://localhost:${process.env.PORT}`);
+});

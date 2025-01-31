@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Footer from "../../components/Footer";
-import CountUp from 'react-countup';
-import { FaLinkedin } from 'react-icons/fa'; 
+import CountUp from "react-countup";
+import { FaLinkedin } from "react-icons/fa";
 
-import godbless from "../../assets/images/godbless.jpeg"
-import { Link } from 'react-router-dom';
+import godbless from "../../assets/images/godbless.jpeg";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const section = document.querySelector('#impact');
+      const section = document.querySelector("#impact");
       const sectionTop = section.getBoundingClientRect().top;
       const triggerPoint = window.innerHeight / 1.2;
 
@@ -20,10 +20,10 @@ const AboutUs = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -32,9 +32,12 @@ const AboutUs = () => {
       <div className="about-us bg-gray-50">
         <section className="hero bg-green-500 text-white py-16 text-center about-image">
           <div className="container mx-auto">
-            <h1 className="text-4xl font-bold">Connecting Farmers with Innovation</h1>
+            <h1 className="text-4xl font-bold">
+              Connecting Farmers with Innovation
+            </h1>
             <p className="mt-4 text-lg">
-              Empowering smallholder farmers with tools, resources, and market access to improve their productivity.
+              Empowering smallholder farmers with tools, resources, and market
+              access to improve their productivity.
             </p>
             <button className="mt-6 bg-white text-green-500 px-6 py-2 rounded-full font-semibold hover:bg-gray-100">
               Learn More
@@ -46,8 +49,10 @@ const AboutUs = () => {
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold text-green-500">Our Mission</h2>
             <p className="mt-4 text-gray-700">
-              Our mission is to bridge the gap between rural farmers and modern agricultural technology, helping them
-              grow and thrive by offering real-time information, expert advice, and access to global markets.
+              Our mission is to bridge the gap between rural farmers and modern
+              agricultural technology, helping them grow and thrive by offering
+              real-time information, expert advice, and access to global
+              markets.
             </p>
           </div>
         </section>
@@ -57,9 +62,10 @@ const AboutUs = () => {
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold text-green-500">Our Story</h2>
             <p className="mt-4 text-gray-700">
-              Founded in 2024, KilimoKacga was born from the belief that technology can be a game-changer for African
-              farmers. Our team set out to build a platform that not only empowers farmers but also fosters sustainable
-              farming practices.
+              Founded in 2024, KilimoKacga was born from the belief that
+              technology can be a game-changer for African farmers. Our team set
+              out to build a platform that not only empowers farmers but also
+              fosters sustainable farming practices.
             </p>
           </div>
         </section>
@@ -72,9 +78,7 @@ const AboutUs = () => {
               {/* Stat 1 */}
               <div className="stat bg-green-100 p-8 rounded-lg">
                 <h3 className="text-2xl font-bold text-green-500">
-                  {hasScrolled && (
-                    <CountUp start={0} end={5000} duration={3} />
-                  )}
+                  {hasScrolled && <CountUp start={0} end={5000} duration={3} />}
                   +
                 </h3>
                 <p className="text-gray-700">Farmers Empowered</p>
@@ -83,10 +87,7 @@ const AboutUs = () => {
               {/* Stat 2 */}
               <div className="stat bg-green-100 p-8 rounded-lg">
                 <h3 className="text-2xl font-bold text-green-500">
-                  {hasScrolled && (
-                    <CountUp start={0} end={25} duration={3} />
-                  )}
-                  %
+                  {hasScrolled && <CountUp start={0} end={25} duration={3} />}%
                 </h3>
                 <p className="text-gray-700">Productivity Increase</p>
               </div>
@@ -94,10 +95,7 @@ const AboutUs = () => {
               {/* Stat 3 */}
               <div className="stat bg-green-100 p-8 rounded-lg">
                 <h3 className="text-2xl font-bold text-green-500">
-                  {hasScrolled && (
-                    <CountUp start={0} end={50} duration={3} />
-                  )}
-                  +
+                  {hasScrolled && <CountUp start={0} end={50} duration={3} />}+
                 </h3>
                 <p className="text-gray-700">Community Partners</p>
               </div>
@@ -112,19 +110,29 @@ const AboutUs = () => {
             <div className="flex justify-center mt-6 space-x-8">
               <div className="value bg-green-100 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-green-500">Innovation</h3>
-                <p className="text-gray-700 mt-2">Leveraging cutting-edge technology for farming solutions.</p>
+                <p className="text-gray-700 mt-2">
+                  Leveraging cutting-edge technology for farming solutions.
+                </p>
               </div>
               <div className="value bg-green-100 p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-green-500">Sustainability</h3>
-                <p className="text-gray-700 mt-2">Encouraging eco-friendly farming practices for the long term.</p>
+                <h3 className="text-xl font-bold text-green-500">
+                  Sustainability
+                </h3>
+                <p className="text-gray-700 mt-2">
+                  Encouraging eco-friendly farming practices for the long term.
+                </p>
               </div>
               <div className="value bg-green-100 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-green-500">Community</h3>
-                <p className="text-gray-700 mt-2">Building a community where farmers support each other.</p>
+                <p className="text-gray-700 mt-2">
+                  Building a community where farmers support each other.
+                </p>
               </div>
               <div className="value bg-green-100 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-green-500">Growth</h3>
-                <p className="text-gray-700 mt-2">Empowering farmers to achieve economic growth and stability.</p>
+                <p className="text-gray-700 mt-2">
+                  Empowering farmers to achieve economic growth and stability.
+                </p>
               </div>
             </div>
           </div>
@@ -141,9 +149,15 @@ const AboutUs = () => {
                   alt="Godbless Nyagawa"
                   className="w-36 h-36 rounded-full border-4 border-purple-600 transform transition-transform duration-300 hover:scale-105 mx-auto"
                 />
-                <h3 className="text-xl font-bold text-green-500 mt-4">Godbless Nyagawa</h3>
+                <h3 className="text-xl font-bold text-green-500 mt-4">
+                  Godbless Nyagawa
+                </h3>
                 <p className="text-gray-700">Founder & CEO</p>
-                <a href="https://www.linkedin.com/in/godbless-nyagawa/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/godbless-nyagawa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaLinkedin className="text-green-500 mt-2 w-6 h-6 mx-auto" />
                 </a>
               </div>
@@ -153,9 +167,15 @@ const AboutUs = () => {
                   alt="Team Member"
                   className="rounded-full mx-auto"
                 />
-                <h3 className="text-xl font-bold text-green-500 mt-4">Jane Doe</h3>
+                <h3 className="text-xl font-bold text-green-500 mt-4">
+                  Glory Nyagawa
+                </h3>
                 <p className="text-gray-700">CTO</p>
-                <a href="https://www.linkedin.com/in/jane-doe/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/glory/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaLinkedin className="text-green-500 mt-2 w-6 h-6 mx-auto" />
                 </a>
               </div>
@@ -165,9 +185,15 @@ const AboutUs = () => {
                   alt="Team Member"
                   className="rounded-full mx-auto"
                 />
-                <h3 className="text-xl font-bold text-green-500 mt-4">John Smith</h3>
+                <h3 className="text-xl font-bold text-green-500 mt-4">
+                  Jasmine Nyagawa
+                </h3>
                 <p className="text-gray-700">Head of Marketing</p>
-                <a href="https://www.linkedin.com/in/john-smith/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/jasmine-nyagawa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaLinkedin className="text-green-500 mt-2 w-6 h-6 mx-auto" />
                 </a>
               </div>
@@ -178,14 +204,17 @@ const AboutUs = () => {
         {/* Call to Action Section */}
         <section className="cta bg-green-500 text-white py-16 text-center">
           <div className="container mx-auto">
-            <h2 className="text-3xl font-bold">Join Us in Empowering Farmers</h2>
-            <p className="mt-4">Sign up today to be part of the future of agriculture.</p>
+            <h2 className="text-3xl font-bold">
+              Join Us in Empowering Farmers
+            </h2>
+            <p className="mt-4">
+              Sign up today to be part of the future of agriculture.
+            </p>
             <button className="mt-6 bg-white text-green-500 px-6 py-2 rounded-full font-semibold hover:bg-gray-100">
               <Link to={"/auth/register"}>Sign Up Today</Link>
             </button>
           </div>
         </section>
-
       </div>
 
       <Footer />

@@ -44,7 +44,7 @@ import UserProfileLayout from "./layouts/UserProfileLayout";
 import AnnouncementLayout from "./layouts/AnnouncementLayout";
 import BlogAuthorLayout from "./blog/Layouts/BlogAuthorLayout";
 import CategoryLayout from "./blog/Layouts/CategoryLayout";
-import MarketLayout from "./layouts/MarketLayout"
+import MarketLayout from "./layouts/MarketLayout";
 
 // Hooks
 
@@ -66,87 +66,109 @@ import UserError from "./Error/UserError";
 import AnnouncementError from "./Error/AnnouncementError";
 import AuthorError from "./blog/error/BlogAuthorError";
 
+// admin
+import DashboardLayout from "./admin/layout/DashboardLayout";
+import DashboardHome from "./admin/pages/DashboardHome";
+import UsersPage from "./admin/pages/UsersPage";
+import ReportsPage from "./admin/pages/ReportsPage";
+import AddUserPage from "./admin/components/AddUserPage";
+import RevenueDashboard from "./admin/pages/RevenueDashboard";
+import AuditLogs from "./admin/components/AuditLogs";
+import OrdersCostDashboard from "./admin/pages/OrdersCostDashboard";
+
 // Router
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
-
-      <Route path="/market-info" element={<MarketLayout />}>
-        <Route index element={<MarketInfo />} />
-        <Route path="new" element={<MarketForm />} />
+    <Route>
+      <Route path="admin/*" element={<DashboardLayout />}>
+        <Route index element={<DashboardHome />} />
+        <Route path="users" element={<UsersPage />} />
+        <Route path="users/create" element={<AddUserPage />} />
+        <Route path="reports" element={<ReportsPage />} />
+        <Route path="revenue" element={<RevenueDashboard />} />
+        <Route path="logs" element={<AuditLogs />} />
+        <Route path="Orders-Cost" element={<OrdersCostDashboard />} />
       </Route>
+      <Route path="/" element={<RootLayout />}>
+        <Route index element={<Home />} />
 
-      <Route path={"announcements"} element={<AnnouncementLayout />}>
-        <Route index element={<Announcement />} />
-        <Route
-          path={":announceId"}
-          element={<AnnouncementDetails />}
-          errorElement={<AnnouncementError />}
-          loader={announcementDetailsLoader}
-        />
-        <Route path="new" element={<AnnouncementForm />} />
-      </Route>
+        {/* admin page section */}
+        <Route path="/market-info" element={<MarketLayout />}>
+          <Route index element={<MarketInfo />} />
+          <Route path="new" element={<MarketForm />} />
+        </Route>
 
-      <Route path={"weather-data"} element={<WeatherLayout />}>
-        <Route index element={<Weather />} />
-        <Route
-          path={":location"}
-          element={<WeatherDetails />}
-          errorElement={<WeatherError />}
-        />
-      </Route>
-
-      <Route path={"about"} element={<About />} />
-      <Route path={"contact"} element={<Contact />} />
-      <Route path={"terms"} element={<Terms />} />
-      <Route path={"privacy"} element={<Privacy />} />
-      <Route path={"auth/login"} element={<Login />} />
-      <Route path={"auth/register"} element={<Register />} />
-      <Route path={"auth/new/password"} element={<ForgotPassword />} />
-
-      <Route path={"user"} element={<UserProfileLayout />}>
-        <Route index element={<UserProfile />} />
-        <Route
-          path={":username"}
-          element={<UserProfileDetails />}
-          errorElement={<UserError />}
-        />
-      </Route>
-
-      <Route path="expert-advice" element={<ExpertAdviceLayout />}>
-        <Route index element={<ExpertAdvice />} />
-        <Route
-          path=":title"
-          element={<ExpertAdviceDetails />}
-          errorElement={<ExpertAdviceError />}
-        />
-        <Route path="new" element={<AddExpertAdvice />} />
-      </Route>
-
-      <Route path={"help"} element={<Help />} />
-      <Route path={"guide"} element={<Guide />} />
-
-      <Route path="blog" element={<CategoryLayout />}>
-        <Route index element={<HomeBlog />} />
-        <Route path="new" element={<AddBlog />} />
-        <Route path="search" element={<SearchBlogCategory />} />
-        <Route path="farming-tips" element={<FarmingTips />} />
-        <Route path="market-trends" element={<MarketTrends />} />
-        <Route path="success-stories" element={<SuccessStories />} />
-        <Route path="sustainability" element={<Sustainability />} />
-        <Route path=":title" element={<BlogPost />} />
-        <Route path="authors" element={<BlogAuthorLayout />}>
-          <Route index element={<BlogAuthor />} loader={authorsLoader} />
+        <Route path={"announcements"} element={<AnnouncementLayout />}>
+          <Route index element={<Announcement />} />
           <Route
-            path=":id"
-            element={<BlogAuthorDetails />}
-            loader={authorDetailsLoader}
-            errorElement={<AuthorError />}
+            path={":announceId"}
+            element={<AnnouncementDetails />}
+            errorElement={<AnnouncementError />}
+            loader={announcementDetailsLoader}
+          />
+          <Route path="new" element={<AnnouncementForm />} />
+        </Route>
+
+        <Route path={"weather-data"} element={<WeatherLayout />}>
+          <Route index element={<Weather />} />
+          <Route
+            path={":location"}
+            element={<WeatherDetails />}
+            errorElement={<WeatherError />}
           />
         </Route>
+
+        <Route path={"about"} element={<About />} />
+        <Route path={"contact"} element={<Contact />} />
+        <Route path={"terms"} element={<Terms />} />
+        <Route path={"privacy"} element={<Privacy />} />
+        <Route path={"auth/login"} element={<Login />} />
+        <Route path={"auth/register"} element={<Register />} />
+        <Route path={"auth/new/password"} element={<ForgotPassword />} />
+
+        <Route path={"user"} element={<UserProfileLayout />}>
+          <Route index element={<UserProfile />} />
+          <Route
+            path={":username"}
+            element={<UserProfileDetails />}
+            errorElement={<UserError />}
+          />
+        </Route>
+
+        <Route path="expert-advice" element={<ExpertAdviceLayout />}>
+          <Route index element={<ExpertAdvice />} />
+          <Route
+            path=":title"
+            element={<ExpertAdviceDetails />}
+            errorElement={<ExpertAdviceError />}
+          />
+          <Route path="new" element={<AddExpertAdvice />} />
+        </Route>
+
+        <Route path={"help"} element={<Help />} />
+        <Route path={"guide"} element={<Guide />} />
+
+        <Route path="blog" element={<CategoryLayout />}>
+          <Route index element={<HomeBlog />} />
+          <Route path="new" element={<AddBlog />} />
+          <Route path="search" element={<SearchBlogCategory />} />
+          <Route path="farming-tips" element={<FarmingTips />} />
+          <Route path="market-trends" element={<MarketTrends />} />
+          <Route path="success-stories" element={<SuccessStories />} />
+          <Route path="sustainability" element={<Sustainability />} />
+          <Route path=":title" element={<BlogPost />} />
+          <Route path="authors" element={<BlogAuthorLayout />}>
+            <Route index element={<BlogAuthor />} loader={authorsLoader} />
+            <Route
+              path=":id"
+              element={<BlogAuthorDetails />}
+              loader={authorDetailsLoader}
+              errorElement={<AuthorError />}
+            />
+          </Route>
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Route>
-      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

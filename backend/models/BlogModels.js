@@ -7,24 +7,32 @@ const blogSchema = Schema(
     title: {
       type: String,
       required: true,
-      maxlenght: [
-        20,
-        "The length of the title should not exceed 20 characters",
+      minlength: [40, "length should be minimum 40 characters"],
+      maxlength: [
+        60,
+        "The length of the title should be maximum 60 characters",
       ],
     },
     body: {
       type: String,
       required: [true, "Blog body is required"],
+      minlength: [300, "length should be minimum 300 characters"],
+      maxlength: [
+        3000,
+        "The length of the title should be maximum 3000 characters",
+      ],
     },
-    thumbnail_image: {
+    image: {
       type: String,
       required: [true, "please provide image about the blog"],
     },
+    /*
     author: {
       type: String,
       required: [true, "User is required"],
       ref: "User",
     },
+     */
     category: {
       type: String,
       required: true,

@@ -4,21 +4,26 @@ const validator = require("validator");
 
 const Schema = mongoose.Schema;
 
-const userSchema = Schema({
-  name: {
-    type: String,
-    required: true,
+const userSchema = Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      minlegth: [6, "length should be minimum of 6 characters"],
+      maxlength: [32, "length should a maximum of 32 characters"],
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-});
+  { timestamps: true }
+);
 
 // static signup method
 userSchema.statics.signup = async function (email, password, name) {
@@ -61,4 +66,4 @@ userSchema.statics.login = async function (email, password) {
   return user;
 };
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.models.Users || mongoose.model("Users", userSchema);

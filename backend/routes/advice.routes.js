@@ -14,25 +14,12 @@ const {
 
 // middleware
 const validateAdviceCreate = require("../middleware/validateAdviceCreate");
+const upload = require("../middleware/uploadImage");
+const validateObjectId = require("../middleware/validateObjectId");
 
 // models
 const ExpertAdvice = require("../models/expertAdviceModel");
-const validateObjectId = require("../middleware/validateObjectId");
 // Multer setup for image upload
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(
-      null,
-      file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname)
-    );
-  },
-});
-
-const upload = multer({ storage: storage });
 
 // add expert advice
 router.post("/", upload.single("image"), async (req, res) => {

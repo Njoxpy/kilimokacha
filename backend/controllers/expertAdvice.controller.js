@@ -3,19 +3,25 @@ const Advice = require("../models/expertAdviceModel");
 const Announcement = require("../models/announcementModel");
 const ExpertAdvice = require("../models/expertAdviceModel");
 const { OK, NOT_FOUND } = require("../constants/responseCode");
+const {
+  FAILED_GET,
+  ADVICE_NOT_FOUND,
+  NO_ADVICE,
+  FAILED_TO_GET,
+  DELETED_SUCESSFULLY,
+  FAILED_TO_DELETE,
+} = require("../constants/statusText");
 
 // get all advices
 const getAllAdvices = async (req, res) => {
   try {
     const advices = await Advice.find({}).sort({ createdAt: -1 });
     if (advices.length === 0) {
-      res.json({ message: "no advices for now" });
+      res.json({ message: NO_ADVICE });
     }
     res.status(OK).json(advices);
   } catch (error) {
-    res
-      .status(NOT_FOUND)
-      .json({ message: "failed to fetch", error: error.message });
+    res.status(NOT_FOUND).json({ message: FAILED_GET, error: error.message });
   }
 };
 
@@ -26,13 +32,13 @@ const getAdviceById = async (req, res) => {
   try {
     const advice = await Advice.findOne({ _id: id });
     if (!advice) {
-      res.json({ message: "advice not found" });
+      res.json({ message: ADVICE_NOT_FOUND });
     }
     res.status(OK).json(advice);
   } catch (error) {
     res
       .status(NOT_FOUND)
-      .json({ message: "failed to get advice", error: error.message });
+      .json({ message: FAILED_TO_GET, error: error.message });
   }
 };
 
@@ -43,15 +49,15 @@ const deleteAdviceById = async (req, res) => {
   try {
     const deletedAdvice = await ExpertAdvice.findOneAndDelete({ _id: id });
     if (!deletedAdvice) {
-      return res.status(NOT_FOUND).json({ message: "advice not found" });
+      return res.status(NOT_FOUND).json({ message: ADVICE_NOT_FOUND });
     }
     res
       .status(OK)
-      .json({ message: "advice deleted sucessfully", details: deletedAdvice });
+      .json({ message: DELETED_SUCESSFULLY, details: deletedAdvice });
   } catch (error) {
     res
       .status(NOT_FOUND)
-      .json({ message: "failed to delete", error: error.message });
+      .json({ message: FAILED_TO_DELETE, error: error.message });
   }
 };
 

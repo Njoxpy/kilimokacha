@@ -75,6 +75,12 @@ import AddUserPage from "./admin/components/AddUserPage";
 import RevenueDashboard from "./admin/pages/RevenueDashboard";
 import AuditLogs from "./admin/components/AuditLogs";
 import OrdersCostDashboard from "./admin/pages/OrdersCostDashboard";
+import MarketAdmin from "./admin/pages/market/MarketInfo";
+import MarketDetails from "./admin/pages/market/MarketDetails";
+import BlogAdmin from "./admin/pages/blog/BlogAdmin";
+import BlogDetails from "./admin/pages/blog/BlogDetails";
+import ExpertAdviceAdmin from "./admin/pages/expertAdvice/ExpertAdviceAdmin";
+import ExpertAdviceAdminDetails from "./admin/pages/expertAdvice/ExpertAdviceDetails";
 
 // Router
 const router = createBrowserRouter(
@@ -82,9 +88,20 @@ const router = createBrowserRouter(
     <Route>
       <Route path="admin/*" element={<DashboardLayout />}>
         <Route index element={<DashboardHome />} />
+        <Route path="dashboard" element={<DashboardHome />} />
         <Route path="users" element={<UsersPage />} />
         <Route path="users/create" element={<AddUserPage />} />
         <Route path="reports" element={<ReportsPage />} />
+        <Route path="market-info" element={<MarketAdmin />} />
+        <Route path="market-info/:id" element={<MarketDetails />} />
+        <Route path="expert-advice" element={<ExpertAdviceAdmin />} />
+        <Route
+          path="expert-advice/:id"
+          element={<ExpertAdviceAdminDetails />}
+        />
+        {/* expert-advice */}
+        <Route path="blog" element={<BlogAdmin />} />
+        <Route path="blogs/:id" element={<BlogDetails />} />
         <Route path="revenue" element={<RevenueDashboard />} />
         <Route path="logs" element={<AuditLogs />} />
         <Route path="Orders-Cost" element={<OrdersCostDashboard />} />

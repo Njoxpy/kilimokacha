@@ -20,6 +20,12 @@ import {
   PlusCircle,
   ActivitySquare,
 } from "lucide-react";
+import {
+  FaBlog,
+  FaCloudMoonRain,
+  FaInfo,
+  FaMapMarkedAlt,
+} from "react-icons/fa";
 
 const DashboardLayout = () => {
   const [open, setOpen] = useState(false);
@@ -61,6 +67,8 @@ const DashboardLayout = () => {
         return "Analytics Reports";
       case "/admin/revenue":
         return "Revenue Analytics";
+      case "/admin/post":
+        return "Post Management";
       case "/admin/logs":
         return "System Logs";
       case "/admin/orders-cost":
@@ -91,6 +99,33 @@ const DashboardLayout = () => {
         },
       ],
     },
+    // post
+    {
+      group: "Post Management",
+      items: [
+        {
+          path: "/admin/market-info",
+          label: "Market Price",
+          icon: <FaMapMarkedAlt size={20} />,
+        },
+        {
+          path: "/admin/blog",
+          label: "Blog",
+          icon: <FaBlog size={20} />,
+        },
+        {
+          path: "/admin/expert-advice",
+          label: "Expert Advice",
+          icon: <FaInfo size={20} />,
+        },
+        {
+          path: "/admin/weather-data",
+          label: "Weather Data",
+          icon: <FaCloudMoonRain size={20} />,
+        },
+      ],
+    },
+
     // User Management Section
     {
       group: "User Management",
@@ -257,7 +292,7 @@ const DashboardLayout = () => {
               >
                 {open ? <X size={24} /> : <Menu size={24} />}
               </button>
-              <h1 className="text-xl font-semibold text-gray-800">
+              <h1 className="text-xl font-semibold text-green-600">
                 {getTitle()}
               </h1>
             </div>
@@ -324,3 +359,5 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
+
+// http://localhost:3000/api/v1/expert-advices

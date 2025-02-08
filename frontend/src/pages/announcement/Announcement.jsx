@@ -1,44 +1,43 @@
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
-import { useEffect, useContext } from "react";
-import { useAnnouncementContext } from "../../hooks/useAnnouncementsContext";
+import Loading from "../../components/Loading";
+import useFetch from "../../hooks/useFetch";
 
-import { baseURL } from "../../services/api_services"
+import { baseURL } from "../../services/api_services";
 
 const Announcement = () => {
-  const { announcements, dispatch } = useAnnouncementContext()
-  const URL = `${baseURL}announcements`
+  const URL = "localhost:3000/api/v1/announcements";
   // const [announcements, setAnnouncements] = useState(null)
 
-  useEffect(() => {
-    const fetchAnnouncements = async () => {
-      const response = await fetch(URL)
-      const json = await response.json()
+  const {
+    data: announcements,
+    loading,
+    error,
+  } = useFetch("http://localhost:3000/api/v1/crops");
 
-      if (response.ok) {
-        // setAnnouncements(json)
-        dispatch({ type: "SET_ANNOUNCEMENTS", payload: json })
-      }
-    }
-
-    fetchAnnouncements()
-  }, [])
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <ErrorFetch />;
+  }
 
   return (
     <>
       <div className="p-4 bg-green-300">
         <h2>Announcements</h2>
-        {announcements && announcements.map((announcement) => (
-          <div key={announcement.id}>
-            <h3 className="font-bold">{announcement.title}</h3>
-            <p>
-              Date: <small>{announcement.date}</small>
-            </p>
-            <button>
-              <Link to={`${announcement.id}`}>soma zaidi</Link>
-            </button>
-          </div>
-        ))}
+        {announcements &&
+          announcements.map((announcement) => (
+            <div key={announcement.id}>
+              <h3 className="font-bold">{announcement.title}</h3>
+              <p>
+                Date: <small>{announcement.date}</small>
+              </p>
+              <button>
+                <Link to={`${announcement._id}`}>soma zaidi</Link>
+              </button>
+            </div>
+          ))}
       </div>
       <Footer />
     </>
@@ -46,3 +45,5 @@ const Announcement = () => {
 };
 
 export default Announcement;
+
+// http://localhost:3000/api/v1/blogs

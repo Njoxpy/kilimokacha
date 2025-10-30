@@ -1,238 +1,283 @@
-Here's a comprehensive template for API documentation. You can fill in the details specific to your API, ensuring that it remains clear, structured, and easy to navigate.
+# System Design: ZITF System Design.
+
+## 1. Clarify & Gather Requirements
+
+### Functional Requirements
+
+- User authentication: Login, Signup(Fullname, Email, password, role).
+
+### Non-Functional Requirements / Constraints
+
+- Scale: The system should be able to handle about 100 users in a time.
+- Latency: [ ]
+- Availability: [ ]
+- Consistency: [ ]
+- Storage: [ ]
+- Budget/Cost: [ ]
+
+### Questions / Assumptions
+
+- I assume that the number of users that should register for the system will be more than 100 per day.
 
 ---
 
-# API Documentation Template
+## 2. API & Data Model
 
-## Overview
+### APIs
 
-### Introduction
-*Provide a brief overview of the API, its purpose, and core functionalities.*
+### User Routes
 
-- **Example**: The AgroConnect API enables developers to integrate farming and agricultural solutions into their applications, allowing users to manage crops, track orders, and more.
+- **POST /...**
 
-### Base URL
-*Specify the base URLs for different environments.*
+  - Request: [Create Account](http://localhost:4000/api/v1/users/signup)
+  ```sh
+  curl -X POST http://localhost:4000/api/v1/users/signup \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Godbless Nyagawa", "email" :"k5@gmail.com", "password": "Oxmcintyre189"}'
+  ```
+  - Response:
 
-- **Development**: `https://dev.agroconnect.com/api`
-- **Production**: `https://agroconnect.com/api`
-
----
-
-## Authentication
-
-### Authentication Method
-*Explain the authentication method used by the API.*
-
-- **Example**: The AgroConnect API uses **Bearer Token** for authentication. You need to include the token in the `Authorization` header for all requests.
-
-### How to Obtain an API Key or Token
-*Provide steps to obtain the API key or token.*
-
-1. Sign up on the AgroConnect developer portal.
-2. Log in and navigate to the API section.
-3. Generate your API key.
-
----
-
-## Rate Limiting
-
-*Describe any rate limits your API has.*
-
-- **Example**: The AgroConnect API allows up to **1000 requests per hour**. If the limit is exceeded, you will receive a `429 Too Many Requests` error.
-
----
-
-## Endpoints
-
-### Endpoint Structure
-
-*Each endpoint should follow this structure:*
-
-#### **Endpoint Name**
-- **Endpoint URL**: `/path/to/endpoint`
-- **Method**: `GET`, `POST`, `PUT`, `DELETE`
-- **Description**: *Briefly explain what the endpoint does.*
-
-#### **Request**
-- **Headers**: 
-  ```http
-  Content-Type: application/json
-  Authorization: Bearer <token>
+  ```json
+  {
+    "email":"k6@gmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzZTMzMWFhM2NhMTg5MzZkMTBlYmMiLCJpYXQiOjE3NjE4NjI0NDksImV4cCI6MTc2NDQ1NDQ0OX0.zeQUvmnv-YBnGBo3bzrd_yxhKcMzKH8VA93WPVay7eM"
+  } 
   ```
 
-- **Parameters**:
-  - **Path Parameters**: 
-    - `{id}`: *Description of the parameter*
-  - **Query Parameters**: 
-    - `status`: *Description of the parameter*
-  - **Body Parameters**: 
-    ```json
+  - Request: [Login](http://localhost:4000/api/v1/users/login)
+  ```sh
+  curl -X POST http://localhost:4000/api/v1/users/login \
+  -H "Content-Type: application/json" \
+  -d '{"email" :"k5@gmail.com", "password": "Oxmcintyre189"}'
+  ```
+  - Response:
+
+  ```json
+  {
+    "email":"k5@gmail.com","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzZTMxZmFhM2NhMTg5MzZkMTBlYjgiLCJpYXQiOjE3NjE4NjI1OTgsImV4cCI6MTc2NDQ1NDU5OH0.y7Su_e-cs7NdBZExh2kxDn5wU2nX_oanGokYlmwrQII"
+  }
+  ```
+
+  - Request: [Get All Users](http://localhost:4000/api/v1/users/)
+  ```sh
+  curl -X GET http://localhost:4000/api/v1/users/
+  ```
+  - Response:
+
+  ```json
+  [{"_id":"6903e506ed57067920ffa7c2","name":"Godbless Nyagawa","email":"k9@gmail.com","createdAt":"2025-10-30T22:21:58.043Z","updatedAt":"2025-10-30T22:21:58.043Z","__v":0},{"_id":"6903e4e777c9f8096c7c80e1","name":"Godbless Nyagawa","email":"k8@gmail.com","createdAt":"2025-10-30T22:21:27.548Z","updatedAt":"2025-10-30T22:21:27.548Z","__v":0}]
+  ```
+
+  - Request: [Get User](http://localhost:4000/api/v1/users/)
+  ```sh
+  curl -X GET http://localhost:4000/api/v1/users/6903e506ed57067920ffa7c2
+  ```
+  - Response:
+
+  ```json
+  [
     {
-      "key": "value"
+      "_id":"6903e506ed57067920ffa7c2",
+      "name":"Godbless Nyagawa",
+      "email":"k9@gmail.com",
+      "createdAt":"2025-10-30T22:21:58.043Z","updatedAt":"2025-10-30T22:21:58.043Z",
+      "__v":0
     }
-    ```
-
-#### **Request Example**
-```http
-POST /auth/login
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "password": "yourpassword"
-}
-```
-
-#### **Response Example**
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR...",
-  "expiresIn": 3600
-}
-```
-
-#### **Possible Status Codes**
-- `200 OK`: *Description*
-- `400 Bad Request`: *Description*
-- `401 Unauthorized`: *Description*
-- `500 Internal Server Error`: *Description*
-
----
-
-### Example of an Endpoint
-
-#### **1.1. POST /auth/login**
-
-- **Description**: Logs a user in and returns an access token.
-  
-#### **Request**
-- **Headers**: 
-  ```http
-  Content-Type: application/json
+  ]
   ```
 
-- **Request Body**:
-   ```json
-   {
-     "email": "user@example.com",
-     "password": "yourpassword"
-   }
-   ```
+- **DELETE /...**
 
-#### **Response Example**
-   ```json
-   {
-     "token": "eyJhbGciOiJIUzI1NiIsInR...",
-     "expiresIn": 3600
-   }
-   ```
+  - Request: [Get User](http://localhost:4000/api/v1/users/:id)
+  ```sh
+  curl -X DELETE http://localhost:4000/api/v1/users/6903e506ed57067920ffa7c2
+  ```
 
-#### **Possible Status Codes**
-- `200 OK`: Login successful.
-- `400 Bad Request`: Invalid credentials.
-- `500 Internal Server Error`: Server issues.
+  - Response:
+
+
+  ```json
+  {
+  "message": "Deleted sucessfully",
+  "deletedUser": {
+    "_id": "6903e4afefaab6a61c262840",
+    "name": "Godbless Nyagawa",
+    "email": "k7@gmail.com",
+    "password": "$2b$10$UgCYX2purH5eaLsVbkNLWuQA/LeHCoYicYPyQCCAHjS4HVf/fN/FS",
+    "createdAt": "2025-10-30T22:20:31.751Z",
+    "updatedAt": "2025-10-30T22:20:31.751Z",
+    "__v": 0
+  }
+  }
+  ```
+
+### Announcements Routes
+
+- **GET /...**
+
+  - Request: [Get Announcements](http://localhost:4000/api/v1/announcements)
+  ```sh
+  curl -X GET http://localhost:4000/api/v1/announcements
+  ```
+
+  
+
+  - Response:
+
+  ```json
+  [
+    {
+      "_id":"6903f02980e74a2508bf904f",
+      "title":"Maadhimisho ya miaka 60 ya uhuru wa Jamhuri ya muuunga","body":"karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania","createdAt":"2025-10-30T23:09:29.237Z","updatedAt":"2025-10-30T23:09:29.237Z",
+      "__v":0
+      },
+  ]
+  ```
+
+  - Request: [Add announcements](http://localhost:4000/api/v1/announcements)
+
+  ```sh
+  curl -X POST http://localhost:4000/api/v1/announcements \
+  -H "Content-Type: application/json" \
+  -d '{
+  "title": "Maadhimisho ya miaka 60 ya uhuru wa Jamhuri ya muuunga",
+  "body": "karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania",
+  "createdBy": "6903e506ed57067920ffa7c2"
+  }'
+  ```
+
+  - Response: 
+
+  ```json
+  {
+  "title": "Maadhimisho ya miaka 60 ya uhuru wa Jamhuri ya muuunga",
+  "body": "karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania",
+  "_id": "6903efd091eac5bff19ef85a",
+  "createdAt": "2025-10-30T23:08:00.694Z",
+  "updatedAt": "2025-10-30T23:08:00.694Z",
+  "__v": 0
+  }
+  ```
+
+- Request: [Get announcement](http://localhost:4000/api/v1/announcements/:id)
+
+  ```sh
+  curl -X GET http://localhost:4000/api/v1/announcements/6903efd091eac5bff19ef85a
+  ```
+
+  - Response: 
+
+  ```json
+  {
+    "_id":"6903efd091eac5bff19ef85a",
+    "title":"Maadhimisho ya miaka 60 ya uhuru wa Jamhuri ya muuunga","body":"karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania","createdAt":"2025-10-30T23:08:00.694Z","updatedAt":"2025-10-30T23:08:00.694Z",
+  "__v":0
+  }
+  ```
+
+
+  - Request: [Delete announcement](http://localhost:4000/api/v1/announcements/:id)
+
+  ```sh
+  curl -X DELETE http://localhost:4000/api/v1/announcements/6903efd091eac5bff19ef85a
+  ```
+
+  - Response: 
+
+  ```json
+  {
+  "message": "announcement deleted sucessfully}",
+  "deletedAnnouncement": {
+    "_id": "6903efd091eac5bff19ef85a",
+    "title": "Maadhimisho ya miaka 60 ya uhuru wa Jamhuri ya muuunga",
+    "body": "karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania karibu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzaniakaribu katika kilele cha maadhimisho ya miaka 6o ya uhuru wa Tanzania",
+    "createdAt": "2025-10-30T23:08:00.694Z",
+    "updatedAt": "2025-10-30T23:08:00.694Z",
+    "__v": 0
+  }
+  }
+  ```
+
+### Healthy Routes
+
+- **GET /...**
+  - Request: [Check Healthy](http://localhost:4000/api/v1/healthy)
+  - Response:
+  ```json
+  { "message": "Everything well!" }
+  ```
+
+### Data Model
+
+- Entities:
+  - User
+    - fullname, email, password:
+  - Announcements
+    - title, body.createdBy.
+  - [Entity2]
+    - fields:
 
 ---
 
-## Error Handling
+## 3. High-Level Architecture
 
-*Document how errors are returned in your API.*
+**Components**
 
-### Error Response Structure
-```json
-{
-  "error": "Invalid credentials",
-  "code": 401,
-  "details": "The email or password provided is incorrect."
-}
-```
+- [ ] Load Balancer
+- [ ] Application Servers
+- [ ] Cache
+- [ ] Database(s)
+- [ ] Background Jobs / Workers
+- [ ] Other: [ ]
 
-### Common Error Codes
-- **400 Bad Request**: *The request was malformed or invalid.*
-- **401 Unauthorized**: *Authentication failed or missing.*
-- **403 Forbidden**: *The user is not allowed to perform the requested operation.*
-- **404 Not Found**: *The requested resource could not be found.*
-- **500 Internal Server Error**: *General server error.*
+**Request Flow**
+
+1. [ ]
+2. [ ]
+3. [ ]
 
 ---
 
-## Pagination (If Applicable)
+## 4. Deep Dive into Key Subsystems
 
-*Document how pagination works.*
+### Subsystem 1: [e.g., ID Generation / Partitioning]
 
-- **Example**: Use the `page` and `limit` query parameters to control pagination.
+- Options:
+- Trade-offs:
+- Scaling:
 
-#### **Request Example**
-```http
-GET /products?page=2&limit=20
-```
+### Subsystem 2: [e.g., Database / Storage]
 
-#### **Response Example**
-```json
-{
-  "total": 100,
-  "page": 2,
-  "limit": 20,
-  "data": [...]
-}
-```
+- Options:
+- Trade-offs:
+- Scaling:
+
+### Subsystem 3: [Optional extra deep dive]
 
 ---
 
-## Webhooks (If Applicable)
+## 5. Edge Cases & Failure Modes
 
-*Explain how to subscribe to events.*
-
-- **Example**: You can subscribe to crop updates, which will send a POST request to the specified webhook URL.
-
----
-
-## Examples and SDKs
-
-*Provide code examples in different languages.*
-
-### Node.js Example
-```javascript
-const axios = require('axios');
-
-axios.post('https://agroconnect.com/api/auth/login', {
-  email: 'user@example.com',
-  password: 'password'
-})
-.then(response => {
-  console.log(response.data.token);
-})
-.catch(error => {
-  console.error(error);
-});
-```
+- Component failure: [ ]
+- Data growth / skew: [ ]
+- Hotspots: [ ]
+- Security / abuse: [ ]
+- Cost vs performance: [ ]
 
 ---
 
-## Changelog (Optional)
+## 6. Scaling & Growth Plan
 
-*Track updates to the API.*
-
-- **Version 1.1 (2024-10-04)**
-  - Added support for crop forecasting in `/v1/crops`.
-  - Improved error handling for `/v1/users`.
-  - Deprecated `/v1/auth/refresh-token`.
-
----
-
-## Contact and Support
-
-*Provide contact information for support inquiries.*
-
-- **Email**: support@agroconnect.com
-- **Slack**: Join our developer channel at [AgroConnect Slack](https://agroconnect.slack.com).
+- Vertical scaling: [ ]
+- Horizontal scaling: [ ]
+- Sharding / Partitioning: [ ]
+- Multi-region support: [ ]
+- Monitoring & Alerts: [ ]
+- Traffic spikes: [ ]
 
 ---
 
-### Usage Instructions
-- Fill in the details specific to your API in the appropriate sections.
-- Ensure examples are accurate and reflect real requests/responses.
-- Regularly update the documentation as the API evolves.
+## 7. Summary
 
-This template serves as a starting point for creating your API documentation, providing a clear structure for developers to understand how to use your API effectively.
+- Final design recap
+- Key trade-offs made
+- Future improvements
